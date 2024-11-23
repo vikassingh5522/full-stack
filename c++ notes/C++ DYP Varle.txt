@@ -1,0 +1,8389 @@
+
+	---------------- C++ Programming ----------------------
+
+	History: 
+
+		ALGOL60 ---> CPL ---> BCPL -----> B ---> C(1972) ----> C++(1983-85)
+	
+		- C++ is actually C with Class later on  it is renamed as C++, as a increamented version of C.
+		- It is developed at AT&T Bell Lab, USA by bjarne Stroustrup
+		- initially it developed to provide the security to data.
+		- After some years, the higher level languages like Java, Python, C# are used as a femous development
+		  languages but as IOT and machince interfacing grows the execution spped of language become most important 
+		  term, and therefore as C++ having greater speed as compare to aother HLL. now again C++ becoming a famous.
+		   i.e. in short due to Security and speed it is used in the industry.
+
+	Version History:
+	
+	Clasic C++: (C++ before C++98): Additional data types, different IO style, function overloading, class and object, 				
+		  constructor and destructors, inheritance, polymorphism, operator overloading, file IO, exception handling, 
+		templets, STL...
+
+	Moddern C++:	
+	- C++98(ISO/IEC): Standardized the core features of C++.
+	- C++03 : A minor revision aimed at fixing defects and clarifying ambiguities in the C++98 standard.
+	- C++11: auto keyword, Lambda expressions, range based loops, uniform init. syntax, smart pointer, additional terms in 	  		
+		 structure, Multithreading support, move samentics...etc
+	- C++14: constexpr additions, binary literals and generic lambdas, variable templet.
+	- C++17: inline variables, Structured binding, fold expression, standard library with optional and variant types., filesystem 	 		 
+		 library, parallel algorithm.
+	- C++20: concepts, ranges, corutines, modules, modern format labrary.
+	- C++23: released in December 2023 as a expermental stage
+	- C++26: C++ standards are on a fixed three-year release cycle.
+
+	Compilers and IDE: 
+
+		Compilers: GNU GCC, g++, CMake .. (Online/Offline)
+		IDE: It is integrated developement environment --> compiler + editor + lib + doc + addons
+
+	//------------------------------------------------------------------------------------------------------------------
+
+	The are some basic differences, lets see one by one
+
+	- In C, some header files are included by default (stdio.h, stdlib.h....)
+	  but in C++, No any header file included by default.
+
+	- There are predefined input and output streams. from wic
+		- cin is predefined input stream
+		- cout is predefined output stream
+
+			 CPU
+		________________________
+		|			|
+		|	 CU		|
+		|_______________________|
+  I/P		|			|		o/p
+   [  ]		|	ALU		|	|----> [ ]
+    |	 	|_______________________|	|
+    |	 	|			|	|
+    |---------->|	IM		|-------|
+In C - scanf()	|_______________________| In C - printf()
+In C++ - cin		^	|	  In C++ - cout
+		________|_______V________
+		|			|
+		|	EM		|
+		|_______________________|
+
+	// Welcome program in C++
+	#include<iostream>
+	int main()
+	{
+		std::cout<<"Welcome to  C++ Programming AND ARCHER INFOTECH";
+		return 0;
+	}
+	
+	// Comments in C++:
+
+		// ---> single line comment
+		/* ..... */	--> Miltiline comment
+
+
+	- Basic Program Structure
+
+		- pre-processor directives
+		- Namespace decl.
+		- class decl.
+		- functions and comments
+		- main() function
+
+
+	- C++ Tokens: these are smllest possible units in the program, which acts as building block for the instructions.
+		The C++ tokens are
+			- Constants and literals
+			- identifiers
+			- comments
+			- keywords
+			- punctuators
+			- preprocessor directives
+			- operators
+	
+
+	Data types in C++: Data type is tool, which is used at the time of memory allocation to know about the
+			   memory need. It is represented using the keyword, that keyword in used in the decl. instruction,
+			   in function to mention the argument type and return type, in pointer and arrays for defining the type,
+			   in the type casting, and in the structure to mention the member type 
+
+					C++ Data Types
+					     |
+		----------------------------------------------------------------------------
+		|					|				    |
+	Derived Data Types			Built-in Data types		 User-defined Data types
+	   |						|				      	    |			
+	- Array						|					- structure
+	- pointer			--------------------------------------			- union
+	- function			|		  |		    |			- enum
+	- reference		 Integral data types   void data type    Floating data types	- class
+	- auto				 |		     |			|
+	- decltype		------------------------    void(NA)		- float(4)
+			   	|	   |	      |				- double(8)
+			       bool(1)   int(4)	      char(1)			- long double (8/12/16)
+					 short(2)     wchar_t (2 or 4) 
+					 long(4/8)    char8_t (1)	
+					 long long(8) char16_t (2)
+						      char32_t (4)
+#include<iostream>
+int main()
+{
+	std::cout<<" ********** Personal Details **********";
+	std::cout<<"Name: Amit Ajit Pol";
+	std::cout<<"age: 23";
+	std::cout<<"contact number 9850678451";
+	std::cout<<"Email: info@archerinfotech.in";
+	std::cout<<"Address: F12, Divyadarshan soviety, behind kothrud bus stand, kothrud, Pune";
+	return 0;
+}
+
+	Like a normal printf() in C, the above program using cout<< gives the output in unformated manner.
+	to display the output in well formatted manner we need to use "Escape Sequence characters"
+
+	\n 	- newline
+	\t 	- Horz. Tab
+	\b 	- backspace
+	\r 	- carriage return
+	\\	- to print \
+	\'	- to print '
+	\"	- to print "
+	\0	- to represent NULL
+	\a   	- Alert or Bell
+	\f	- Form feed
+	\v	- Vertical Tab
+	\?	- to print ?
+	\nnn	- octal representation
+	\xhh	- hex representation
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Escape Sequence Characters Demo:\n";
+    cout << "1. Newline: Line 1\nLine 2\nLine 3\n";
+    cout << "2. Horizontal tab: Column 1\tColumn 2\tColumn 3\n";
+    cout << "3. Backspace: 123\b45\n";
+    cout << "4. Carriage return: 1234\rAB\n";
+    cout << "5. Backslash: C:\\path\\to\\file\n";
+    cout << "6. Single quote: It\'s raining.\n";
+    cout << "7. Double quote: She said, \"Hello.\"\n";
+    cout << "8. Null character: Hello\0World\n";
+    cout << "9. Alert (bell): Beep!\a\n";
+    cout << "10. Form feed: Page 1\fPage 2\n";
+    cout << "11. Vertical tab: Line 1\vLine 2\n";
+    cout << "12. Question mark: What\? Why\?\n";
+    cout << "13. Octal representation: \110\145\154\154\157\n";
+    cout << "14. Hexadecimal representation: \x48\x65\x6C\x6C\x6F\n";
+
+    return 0;
+}
+
+
+Manipulators in C++: In C++, manipulators are special functions or objects provided by the Standard Library that 
+are used to modify the behaviour of input and output streams. They are typically used in conjunction with the 
+insertion (<<) and extraction (>>) operators to format input and output data. 
+Manipulators can perform various tasks such as setting field width, formatting numbers, controlling precision, and more. 
+
+	std::setw(<size>) : set the width of next output fields.
+	std::setprecision(int n): decides the number if digits after decimal point while displaying the fractional number
+	std::fixed: 
+	std::scientific:
+	std::left: 
+	std::right:
+	std::boolalpha: 
+	std::hex:
+	std::oct:
+	std::dec: 
+	
+
+#include <iostream>
+#include <iomanip> // for manipulators
+using namespace std;
+int main() {
+    // setw(int n)
+    cout << setw(20) << "Name" << setw(10) << "Age" << setw(15) << "Salary" << endl;
+    cout << setw(20) << "John Doe" << setw(10) << 30 << setw(15) << 50000.0 << endl;
+    // setprecision(int n) and fixed
+    double pi = 3.14159265359;
+    cout << setprecision(3) << fixed << "Pi: " << pi << endl;
+    // scientific
+    double num = 123456.789;
+    cout << scientific << "Number: " << num << endl;
+    // left and right
+    cout << setw(10) << left << "Left" << setw(10) << right << "Right" << endl;
+    // boolalpha
+    bool flag = true;
+    cout << boolalpha << "Flag: " << flag << endl;
+    // hex, oct, and dec
+    int value = 255;
+    cout << "Hex: " << hex << value << endl;
+    cout << "Oct: " << oct << value << endl;
+    cout << "Dec: " << dec << value << endl;
+    return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
+	Constants and Literals: 
+		
+		- literals: These are the fixed values, which are assigned to variable.
+		
+			45 - integer literal		'a' - character literal
+
+		- constant: These are the named values defined using identifier, which remains unchanged throurhout
+			     the program execution. It not possible to change its value. if sameone attempt to change
+			      it, compiler will generate an error message.
+
+			There are following ways of defining the constants:
+
+			- Using const Keyword: (C++98)
+			- Using enum: (C++98)
+			- Using #define Preprocessor Directive: (C++98)
+			- Using constexpr Keyword: (C++11)
+			- Using using Alias: (C++14)
+
+	
+- Using const Keyword: (C++98): 
+
+	int x=100;		const int y=200;
+
+#include <iostream>
+int main() {
+    // Declaring integer constants
+    const int MAX_VALUE = 100;
+    const int MIN_VALUE = 0;
+
+    // Declaring floating-point constants
+    const double PI = 3.14159;
+    const float GRAVITY = 9.81f;
+
+    // Declaring character constants
+    const char NEWLINE = '\n';
+    const char TAB = '\t';
+
+    // Using constants in expressions
+    int range = MAX_VALUE - MIN_VALUE;
+    double circumference = 2 * PI * 5.0;
+
+    // Outputting constants
+    std::cout << "Range: " << range << NEWLINE;
+    std::cout << "Circumference: " << circumference << NEWLINE;
+
+   /// MIN_VALUE=10; /// error: assignment of read-only variable 'MIN_VALUE'|
+    return 0;
+}
+
+
+//-----------------------------------------------------------------------------------------------------
+
+- Using const expr Keyword: (C++11):
+
+#include<iostream>
+int main() {
+    constexpr int MAX_VALUE = 100;
+    int num = 5;
+    // Print the values
+    std::cout << "Max value: " << MAX_VALUE << std::endl;
+    std::cout << " num: " << num << std::endl;
+
+    /// MAX_VALUE=300; ///error: assignment of read-only variable 'MAX_VALUE'
+    num=200;
+    std::cout << "Max value: " << MAX_VALUE << std::endl;
+    std::cout << " num: " << num << std::endl;
+
+    return 0;
+}
+
+
+	// In above both cases, using const and constexpr, we declared constants, and when we tried to modify it, 
+	// it will genberate an error message.
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+
+- Using enum: (C++98)
+
+	enum [<name>]{const1, const2,...,constN};
+
+	e.g.	enum color {red, green, blue, black};		or 	enum {red, green, blue, black}; 
+
+
+
+	enum color {RED, GREEN, BLUE, BLACK};	or 	enum {RED, GREEN, BLUE, BLACK};
+ 
+	RED	Equivalent to 0
+	GREEN   Equivalent to 1 
+	BLUE    Equivalent to 2
+	BLACK   Equivalent to 3
+
+ 
+Unscoped Enum:
+// Declaration
+enum Color { RED, GREEN, BLUE};
+// Usage
+Color c = RED;
+
+Scoped Enum:
+// Declaration
+enum class Fruit {
+    APPLE,
+    BANANA,
+    ORANGE
+};
+// Usage
+Fruit f = Fruit::APPLE;
+
+	// using unscoped 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    enum Color { RED=7, GREEN=20, BLUE};
+    enum Ink {BLACK, PINK, YELLOW, RED}; //error: 'RED' conflicts with a previous declaration|
+
+    cout<<endl<<" Colors:"<<RED<<"\t"<<GREEN<<"\t"<<BLUE;
+    cout<<endl<<" Colors:"<<Color::RED<<"\t"<<Color::GREEN<<"\t"<<Color::BLUE;
+
+    cout<<endl<<" INK:"<<BLACK<<"\t"<<PINK<<"\t"<<BLUE; // Take the value from 1st enum
+
+    return 0;
+}
+
+	// using scoped
+#include<iostream>
+using namespace std;
+int main()
+{
+    enum class Color {RED=7, GREEN=20, BLUE};
+    enum class Ink {BLACK, PINK, YELLOW, RED};
+
+   // cout<<endl<<" Colors:"<<RED<<"\t"<<GREEN<<"\t"<<BLUE; //error: 'RED' was not declared in this scope|
+    cout<<endl<<" Colors:"<<(int)Color::RED<<"\t"<<(int)Color::GREEN<<"\t"<<(int)Color::BLUE;
+
+    cout<<endl<<" INK:"<<(int)Ink::BLACK<<"\t"<<(int)Ink::PINK<<"\t"<<(int)Ink::RED;
+
+    return 0;
+}
+///-------------------------------------------------------------------------------------------
+
+- Using #define Preprocessor Directive (C++98):  
+
+	For example: 	#define PI 3.14159	and 	#define MAX_SIZE 100
+
+#include<iostream>
+#define PI_VALUE  3.14159
+int main() {
+    // Usage of the constant
+    double radius = 5.0;
+    double area = PI_VALUE * radius * radius;
+    std::cout << "Area: "<< area;
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+- Using using Alias: (C++14)
+
+
+#include<iostream>
+using PI = double;
+constexpr PI PI_VALUE = 3.14159;
+
+int main() {
+    // Usage of the constant
+    double radius = 5.0;
+    double area = PI_VALUE * radius * radius;
+    std::cout << "Area: "<< area;
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+Input and Output in C++ using cin, cout: 
+
+
+		 				  CPU  
+					_________________________
+					|			|
+				|----->	|	  CU		|---> sends the command signal to every connected peripherial
+				|	|_______________________|
+		   Input	|	|			|	 	 Output
+console input	    [ ]		|   |-->|	  ALU		|---|     |--->   [ ]
+streal		     |		|   |	|_______________________|   |	  | console output stream
+   c- scanf()	     |		|   |---|			|<--|	  | c - printf()
+  c++ - cin	     |		|-------|	  IM		|	  | c++ - cout
+		     |---------------->	|_______________________|---------|
+				   	       ^          |	
+			    file input stream  |	  | file output stream	
+     C - file *fp=fopen("..","r")	 ______|__________V______  c - file *fp=fopen("..","w")
+					|			|
+					|	  EM		|
+					|_______________________|
+
+
+cin (Standard Input): cin is a predefined object of the istream class, which represents the standard input stream. It is used to read data from the standard input device, typically the keyboard, and store it into variables. >> operator is actually bitwise right shift operator, which is overloaded here along with cin, to extract the data from stream and therefore it is known as get-in or extraction operator.
+
+		Syntax: 	cin>> <variable_name>;
+
+	Note that, cin>> does not need an address of variable using & operator, it needs only variable name. 
+	address collected automatically.
+
+
+cout (Standard Output): cout is a predefined object of the ostream class, which represents the standard output stream. It is used to output data to the standard output device, typically the console/screen. << operator is actually bitwise left-shift operator, which when used along with cout, it will inserts / prints the data on screen and therefore it is called as insertion operator or put-to operator.
+	
+	Syntax:  	cout<< “<format_string>”<< <variable_name><<endl;
+
+	Note that it does not need amy format specifier.
+
+//----------------------------------------------------------------------------------------
+#include<iostream>
+#include <iostream>
+int main() {
+    int intValue;
+    short shortValue;
+    long longValue;
+    long long longLongValue;
+
+    // Input different types of integers
+    std::cout << "Enter an integer (int): ";
+    std::cin >> intValue;
+
+    std::cout << "Enter an integer (short): ";
+    std::cin >> shortValue;
+
+    std::cout << "Enter an integer (long): ";
+    std::cin >> longValue;
+
+    std::cout << "Enter an integer (long long): ";
+    std::cin >> longLongValue;
+
+    // Display the input integers
+    std::cout << "Integer (int)"<<sizeof(int)<<": " << intValue << std::endl;
+    std::cout << "Integer (short)"<<sizeof(short)<<": " << shortValue << std::endl;
+    std::cout << "Integer (long)"<<sizeof(long)<<": " << longValue << std::endl;
+    std::cout << "Integer (long long)"<<sizeof(long long)<<": " << longLongValue << std::endl;
+
+    return 0;
+}
+
+
+    /// Dynamic decl and dynamic init.
+    
+- Dynamic decl: C++ allows you to decl. variable anywhere in the program,
+                just decl. before using it. known as dynamic declaration.
+                    
+- Dynamic initilization: The them initialization refers to assigining
+        the value to variable at the time of memory allocation. if the
+        value to which valiable in initialized is decided at runtime.
+        such initilization is known as Dynamic initilization.
+       
+
+/// WAP to calc the simple interest.
+#include<iostream>
+using namespace std;
+int main()    
+{
+    int pa; 
+    cout<<endl<<"Enter the pr. amount: ";
+    cin>>pa;
+    
+    double roi;// dynamic decl
+    cout<<endl<<"Enter the rate of intr: ";
+    cin>>roi;
+    
+    int noy; // dynamic decl
+    cout<<endl<<"Enter the dur: ";
+    cin>>noy;
+    
+    double si=(pa*roi*noy)/100; // dynamic init
+    cout<<endl<<"simple interest: "<<si;
+    
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	/// Fractional data input and display
+
+#include <iostream>
+
+int main() {
+    float floatValue;
+    double doubleValue;
+    long double longDoubleValue;
+
+    // Input different types of fractional values
+    std::cout << "Enter a fractional value (float): ";
+    std::cin >> floatValue;
+
+    std::cout << "Enter a fractional value (double): ";
+    std::cin >> doubleValue;
+
+    std::cout << "Enter a fractional value (long double): ";
+    std::cin >> longDoubleValue;
+
+    // Display the input fractional values
+    std::cout << "Fractional value (float): " << floatValue << std::endl;
+    std::cout << "Fractional value (double): " << doubleValue << std::endl;
+    std::cout << "Fractional value (long double): " << longDoubleValue << std::endl;
+
+    return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Dealing with Boolean data
+
+The Boolean data type (bool keyword) used to hold the result of condition, it is value 1 when the condition is Ture and 0 when the condition is false. C++20 introduces boolean literals true and false, which can be used to represent true and false values respectively.
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    bool b1=true;
+    bool b2=false;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2<<endl;
+
+    int x=34, y=56;
+    b1=x>y;
+    b2=x!=y;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2<<endl;
+
+    cout<<std::boolalpha;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2;
+
+    return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Using character data types
+
+#include <iostream>
+
+int main() {
+    char ch;
+    std::cout << "Enter a character: ";
+    std::cin >> ch;
+    std::cout << "Character entered: " << ch << std::endl;
+    return 0;
+}
+
+#include <iostream>
+int main() {
+    wchar_t wch;
+    std::wcout << L"Enter a wide character: ";
+    std::wcin >> wch;
+    std::wcout << L"Wide character entered: " << wch << std::endl;
+    return 0;
+}
+
+
+	// character input - output
+
+#include <iostream>
+int main() {
+    char str[40];
+
+    std::cout<<std::endl<<"Enter any string: ";
+    std::cin>>str;
+    std::cout<<std::endl<<" str is: "<<str;
+
+    const int MAX_SIZE = 100;
+    char charArray[MAX_SIZE];
+    std::cout << std::endl<< "Enter a string with spaces: ";
+    //fflush(stdin);
+    std::cin.ignore();
+    std::cin.getline(charArray, MAX_SIZE);
+    std::cout << "Entered string: " << charArray << std::endl;
+
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------------------------------
+
+	/// Using void data type: 
+
+	- we know that, the void data type is used to mention the function returning nothing in response to call.
+	  Also when function does no collect any argument, the we use the void 
+
+		i.e.	void show(void){....}
+
+	- The another use of void is to declare the "Generic Pointer".
+	  The generic pointer is a pointer which is convertable to any type.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    char ch='A';
+    float ft=3.4;
+    int x=3245;
+
+    void *gp; /// generic pointer
+
+    gp=&ch;
+    cout<<endl<<" ch using gp:"<<*(char*)gp; // classic way of casting
+    cout<<endl<<" ch using gp:"<<*static_cast<char*>(gp)<<endl;// modern way of casting
+
+    gp=&ft;
+    cout<<endl<<" ft using gp:"<<*(float*)gp; // classic way of casting
+    cout<<endl<<" ft using gp:"<<*static_cast<float*>(gp)<<endl;// modern way of casting
+
+    gp=&x;
+    cout<<endl<<" x using gp:"<<*(int*)gp; // classic way of casting
+    cout<<endl<<" xusing gp:"<<*static_cast<int*>(gp)<<endl;// modern way of casting
+
+    return 0;
+}
+//--------------------------------------------------------------------
+
+// Operators in C++: special symbols with well defined meaning, which
+		     will be used to process the data, when they are 
+		     operated on opearnds.
+
+	- All C operators are valid in C++, and these are
+
+		- Assignment Operators [=]:   							
+		- Unary Operators [ - ++ -- (type) sizeof ]:
+		- Arithmatic Operators [ + - * / % ]:
+		- Relational Operators [ < <= > >= ]:
+		- Equality Operators [==, != ]
+		- Logical Operators [ && || !]:
+		- Conditional Operators [ ? : ]:
+		- Bitwise Operators [ & | ^ >> << ]:
+		- Special Operators [ , ; . -> &(ampersand) * ]:
+
+	- Additionally C++ provides the following operators.
+            
+                - :: (scope resolution operator)
+                - ::* (pointer to member Declarator)
+                - ->* and .* (pointer to member operators)
+                - delete (Memory release operator)
+                - new (memory allocation operator)
+                - endl (Line feed operator)
+                - setw (field width operator)
+    	
+ - :: (scope resolution operator): 
+   The scope resolution operator is used to access the global member always
+   from any scope, It will access the global member even from the nested scope.
+
+#include<iostream>
+using namespace std;
+int x=1000; // Global member
+int main()
+{
+	int x=100; // local to main()
+	cout<<"\n In main(upper) x: "<<x<<"\t global x: "<<::x;
+	{
+		int a=x; // local to inner scope
+		cout<<"\n Inner scope(upper) x: "<<x<<"\t a="<<a<<"\t global x: "<<::x;
+		int x=10;// local to inner scope
+		a=x;
+		cout<<"\n Inner scope(lower) x: "<<x<<"\t a="<<a<<"\t global x: "<<::x;
+	}
+	cout<<"\n In main(lower) x: "<<x<<"\t global x: "<<::x;
+	return 0;
+}
+
+//------------------------------------------------------------------------------------
+
+
+ // - new (memory allocation operator) and delete (Memory release operator): 
+
+	new - Here is new is keyword, and acts as a memory allocation operator.
+	      unlike C, it does require an explicit casting and also no need of
+	      byte calculation, it will be done automatically.
+
+		It is alternative to malloc(),calloc() and realloc()
+
+		lets see  how malloc() is used in C
+
+		int *p;
+		p=(int*)malloc(cnt*sizeof(int));
+
+		// In C++
+		syntax:
+			<ptr_variable> = new <data_type>[<cnt>];
+
+		int *p;
+		p=new int[cnt];
+
+
+	delete - Here delete is keyword, and acts as a Memory release operator.
+		 it will free/deletes/ releases the memory allocated for pointer variable
+		 using new.
+
+			in C:
+				int *p;
+				p=....
+				free(p);
+
+			In C++			
+
+			syntax:	delete <ptr_var>;
+
+				int *p;
+				p=....
+				delete p;
+
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	int *p;
+
+	cout<<endl<<"Enter the element count: ";
+	int cnt;
+	cin>>cnt;
+
+	p=new int[cnt];
+
+	cout<<endl<<"Enter the "<<cnt<<" nos: ";
+	for(int i=0;i<cnt;i++)
+	{
+		cin>>*(p+i);
+	}
+
+	cout<<endl<<"Elements are: ";
+	for(int i=0;i<cnt;i++)
+	{
+		///cout<<"  "<<*(p+i);
+		///cout<<"\t"<<*(p+i);
+		cout<<setw(6)<<*(p+i);
+	}
+	delete(p);
+	cout<<endl<<"Elements are: ";
+	for(int i=0;i<cnt;i++)
+	{
+		///cout<<"  "<<*(p+i);
+		///cout<<"\t"<<*(p+i);
+		cout<<setw(6)<<*(p+i);
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------
+
+	- Different control statements in C++:
+
+		C provides different control statments and all are as it is in C++
+
+							Control statments
+							      |
+						------------------------------
+						|			      |
+					Conditional CS			UnConditional CS
+						|				|
+				-------------------------------		----------------------------------
+				|		|	     |		|	   |		|	  |
+			   Decision	     Loop	   Case	       goto      break      continue     return 
+			    |		      |		    |	
+			- if()		    - for()	  switch()
+			- if() else	    - while()
+			- Nesting	    - do while()
+			- Ladder
+ 
+
+	conditional control statments: needs the condition for working.
+
+	unconditional control statments: Does not need any condition to work
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+	// Derived Type in C++
+
+	The derived types are as listed below..!!
+	
+	- Array: 
+	- pointer:
+	- function:
+	- reference:
+	- auto
+	- decltype
+
+
+ - Array: collection of elements having same data type, which conti. arranged
+	  int the menory.
+
+	- Numeric array: ( same as we have seen in the C)
+	- character array: only onr difference and it is
+
+		 Note that character array in C does not consider '\0' as 
+		 a part of string, where as in C++ '\0' is considered as a 
+		 part of string.
+
+			C   - char s[5]="hello";
+			C++ - char s[6]="hello";
+
+
+ - Pointer: It is used in the dynamic memory allocation to store an address
+	    of variable. We may divide the pointer in two different parts.
+
+	- Raw pointer: (Pointer we have seen in the C)
+		The basic difference is in steade of malloc() and free(),
+		new and delete used for memory allocation release			
+	- Smart pointer: Introduced in C++11, so we will see it in same chapter
+	
+
+	 Additionally c++ introduced 
+            
+                - pointer to constant: pointer able to point to any location of 
+                                       correct type, but when it is refering, it 
+                                       will not allow to change the data from the 
+                                       location where it is pointing.
+                                       
+                - Constant pointer:  It is pointing towards same location. means the        
+                                     value of pointer variable(address) can not be changed once
+                                     it is initilizsd. you can change the value from 
+                                     the location, where it is pointing.
+
+
+#include<iostream.h>
+//using namespace std; (run using onlinegdb TurboC++ Compiler)
+int main()
+{
+    //-------------------- pointer to constant ------------------
+    char const *ptr="hello";
+    cout<<endl<<"string is: "<<ptr;
+
+    ptr="Good Day";
+    cout<<endl<<"string is: "<<ptr;
+
+    // *(ptr+2)='a'; // will generate the error coz it is refered by pointer to constant
+
+    //-------------------- constant pointer  ------------------
+    char *const ptr1="how are you";
+    cout<<endl<<"string is: "<<ptr1;
+    *(ptr1+2)='a';
+    cout<<endl<<"now string is: "<<ptr1;
+
+   // ptr1="Bye Bye";   // error due to, you are trying to assign new address to constant pointer
+    cout<<endl<<"string is: "<<ptr1;
+   //-------------------------------------------------------    
+    const char* const ptr2="good day";
+    cout<<"\n ptr2 is: "<<ptr2;
+    
+    // ptr2="see you"; // error: con not modify the const object
+    // *(ptr2+2)='a'; // error: con not modify the const object
+
+    return 0;
+}
+//---------------------------------------------------------------------------------------------
+	- Function: (Next chapter)
+//---------------------------------------------------------------------------------------------
+
+	- Reference: 
+
+		int x=10;	int& y=x; // Here y is alternative name of x, called alise
+		int z=x;
+
+			x     y	       z
+			 [ 10 ]		[ 10 ]
+			
+#include<iostream>
+using namespace std;
+int main()
+{
+    int x=10;
+    int &y=x;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    x=100;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    y=150;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    return 0;
+}
+
+//------------------------------------------------------------------------
+
+
+	// let's consider the following program.
+
+/// class by value
+ 
+#include<iostream>
+using namespace std;
+void swap(int a, int b)
+{
+	int tmp;
+	tmp=a;
+	a=b;
+	b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(x,y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+
+ /// call by reference - using pointer
+
+#include<iostream>
+using namespace std;
+void swap(int *a, int *b)
+{
+	int tmp;
+	tmp=*a;
+	*a=*b;
+	*b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(&x,&y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+//-------------------------------------------------------------------------------------
+
+/// call by reference - using reference variable
+#include<iostream>
+using namespace std;
+void swap(int& a, int& b)
+{
+	int tmp;
+	tmp=a;
+	a=b;
+	b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(x,y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+//----------------------------------------- Function in C++: ----------------------------------------------
+//----------------------------------------------------------------------------------------------------------
+
+ 
+
+	Note: the function we have seen in C, is as it is in C++. Additionally the C++ function having
+	      following features.
+
+	
+	Def: Group/Collection of instructions designed to perform the specific task.
+	There are 3 different steps 
+	
+	- decleration
+	- calling
+	- definitation
+
+	consider the simple add() function,
+
+	dec: 
+		int add(int, int);
+
+	def:
+		int add(int x, int y)
+		{
+			int t=x+y;
+			return t;
+		}
+
+	call:
+		int ans=add(a,b);
+
+
+Lets see,
+
+int add(int,int);
+int main()
+{
+	int a,b,sum;
+
+	cout<<endl<<"Enter two numbers: ";
+	cin>>a>>b;
+
+	sum=add(a,b);
+	
+	cout<<endl<<"Addition is: "<<sum;
+	return 0;
+}
+int add(int x, int y)
+{
+	int t=x+y;
+	return t;
+}
+
+
+ //-------------------------------------------------------------------------------------------------
+
+	// Inline Function: 
+
+	It is simple function, decl. as inline using inline keyword. when any function decl. as inline
+	the function call is replaced with body of function. means the it will avoid the push, pop and 
+	register copy operations.
+
+	Note that it is request to compiler, if that function is complex then it will execute as a normal
+	function eventhough it is decl. as inline.
+
+	There are some rules for inline
+	- It must be expanded within one or two lines.
+	- It must not contain, any control statement or switch.
+	- static function can not be decl as inline.
+	- vitual function can not be decl. as inline.
+	- It can not be recursive.
+
+
+inline int squre(int t)
+{
+	return (t*t);
+}
+
+int main()
+{
+	int no,ans;
+	cout<<endl<<"Enter any number: ";
+	cin>>no;
+	ans=squre(no); 
+	cout<<endl<<"Squre of "<<no<<" is "<<ans;
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+	// Function with reference arguments and reference return.
+
+	we have seen, call by reference using reference variable.
+
+	void swap(int &a, int &b)
+	{
+		...
+	}
+
+	and called from main() as swap(x,y)
+
+	In this case, x and y are variables from scope of main() function. The a and b are the 
+	alternative names assinged to them, to access them from swap() function.
+
+	in a same style you can assign an alternative name to the variable from function, to access
+	in a main() function.
+
+	lets see the following example...!!
+
+int& findmax(int& x, int& y)
+{
+	if(x>y)
+		return x;
+	else 
+		return y;
+}
+	
+int main()
+{
+	int a,b;
+
+	cout<<endl<<"Enter two numbers: ";
+	cin>>a>>b;
+
+	int& t=findmax(a,b);
+	
+	cout<<endl<<"max is: "<<t; // Actualy it will assigns name to max value location
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+	// Function with default arguments:
+
+	C++ allows you to assign the default values to the formal arguments, which are used when 
+	function call does not provides the values via call.
+	
+	But note that the values must be assiged from right to left to formal arguments.
+
+
+#include<iostream>
+using namespace std;
+float findintr( int pa, float roi=12.1, int noy=5)
+{
+    float ans=(pa*roi*noy)/100;
+    return ans;
+}
+int main()
+{
+    int p,n;
+    float r,si;
+
+    cout<<endl<<"Enter the values of p,r and n: ";
+    cin>>p>>r>>n;
+
+    si=findintr(p,r,n);
+    cout<<endl<<"SI1:"<<si;
+
+    si=findintr(p,r);
+    cout<<endl<<"SI2:"<<si;
+
+    si=findintr(p);
+    cout<<endl<<"SI3:"<<si;
+
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+	
+	// Function with const argument
+
+	we can use const as a qualifier to the formal arguments, so when it is decl. as a constant we can
+	access it, but it is not allowed to change it. generally it is used to when the members are passed 
+	by reference.
+#include<iostream>
+using namespace std;
+int countpalindromes(const int y[])  // try run without const and use y[i] in while rather than no
+{
+    int no,rev,cnt=0;
+    for(int i=0;i<5;i++)
+    {
+        no=y[i];
+        rev=0;
+        while(no!=0)
+        {
+            rev=(rev*10)+(no%10);
+            no=no/10;
+        }
+        if(y[i]==rev)
+        {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+int countodds(int y[])
+{
+    int cnt=0;
+    for(int i=0;i<5;i++)
+    {
+        if(y[i]%2!=0)
+        {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+int main()
+{
+    int x[]={11,22,3763,44,55};
+
+    cout<<endl<<"Array is: ";
+    for(int i=0;i<5;i++)
+    {
+        cout<<"   "<<x[i];
+    }
+    int pnc=countpalindromes(x);
+    cout<<endl<<"Palindrome number Count: "<<pnc;
+
+    int ec=countodds(x);
+    cout<<endl<<"Even Count: "<<ec;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Function Overloading: 
+
+	C does not allows you to wrire a function with same name in a single program. but in C++ it is allowed.
+	But condition is that all these functions having same name must differ in terms of type of arguments
+	passed, sequence in which they collected and number of arguments. 
+
+	If program contains multiple functions having same name and they differ in terms of type, sequence
+	and count then it is known as function overloading. Note that returning type does not play any role in it.
+
+	Again note one more thing by defining or after assigning the default argument, if compiler finds multiple
+	copies with same signature/prototype it will generate an error message called ambigious error.
+	
+#include<iostream>
+using namespace std;
+/*
+int calcsum(int p, int q)
+{
+	return p+q;
+}*/
+int calcsum(int a, int b)
+{
+	return a+b;
+}
+int calcsum(int a, int b,int c)
+{
+	return a+b+c;
+}
+int calcsum(int a, int b,int c,int d)
+{
+	return a+b+c+d;
+}
+int main()
+{
+	int a,b,c,ans;
+
+	cout<<endl<<"Enter any three int values: ";
+	cin>>a>>b>>c;
+
+	ans=calcsum(a,b);
+	cout<<endl<<"ans: "<<ans;
+
+	ans=calcsum(a,b,c);
+	cout<<endl<<"ans: "<<ans;
+
+	ans=calcsum(a,b,c,100);
+	cout<<endl<<"ans: "<<ans;
+
+}
+
+
+	Note that if exact match not found then, the lower types are promoted to higher types and then the
+	exact match will be searched. In such case the type promotion happen as shown
+
+	char --> int --> long --> float --> double --> long double
+
+	lets consider the same example where the add(int,int) is not present then to add two int values
+	add(float,int) will be used after promoting the first int to float
+
+#include <iostream>
+using namespace std;
+void add(int a, int b, int c)
+{
+	cout<<endl<<"Addition 1 is: "<<(a+b+c);
+}
+void add(float a, float b)
+{
+	cout<<endl<<"Addition 2 is: "<<(a+b);
+}
+
+int main()
+{
+	int x,y;
+	cout<<endl<<"Enter two int values: ";
+	cin>>x>>y;
+	add(x,y); // x and y is promoted to float
+
+	int z;
+	cout<<endl<<"Enter a single int value: ";
+	cin>>z;
+	add(x,y,z);
+		
+	float p,q;
+	cout<<endl<<"Enter two float values: ";
+	cin>>p>>q;
+	add(p,q);
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+Again we have to see different functions listed below, after knowing the class and object concept.
+
+- static functions:
+- friend function:
+- virtual functions:
+
+
+                
+//===========================================================================================================================
+//===========================================================================================================================
+
+	class and Object
+	=================
+
+	we have seen different data types in C and C++, and we know that the basic aim of any
+	data type is to allocate the memory.
+
+	we used built-in data types(char,int,float and double), derived data types(array, 
+	pointer), and userdefined data types(structure, union and enum) to allocate the memory.
+
+	These data types used in the decl. instruction to allocate the memory, which will 
+	creates the data structure, which is used to represent the data. The data represented
+	using above data structures can be accessed using any function defined within the same
+	program. Means the data is public in nature, and as the data is public, it is less
+	secure.
+
+	To attend the data security C++ introduced a concept of class. It is user defined data
+	type, which will create a data structure and when that data structure is used to
+	represent data within memory, it will not allow to access the data members using dot
+	operator directly like a structure, means bydefault the data represented using class
+	is private in nature, and this limited accessibility provides the security to data.
+
+	lets see with the help of example,
+
+	// we have store the information of bank account
+
+	// lets use the structure
+
+struct BankAccount			//	b
+{					//	[         |     |        ]
+	char nm[40];			//         b.nm    b.accno  b.pass
+	int accno;
+	char pass[20];
+};
+
+int main()
+{
+	struct BankAccount b;
+
+	cout<<endl<<"enter the account holder name: ";
+	cin.getline(b.nm,40);
+	cout<<endl<<"enter the account number: ";
+	cin>>b.accno;
+	cout<<endl<<"enter the account password: ";
+	cin.getline(b.pass,40);
+
+	cout<<endl<<"Name: "<<b.nm<<"\t Account Number: "<<b.accno<<"\t Password: "<<b.pass;
+
+	return 0;
+}
+
+
+//-------------------------------------------------------------
+
+	// Due to several different advantages, we will prefer functions(Modular Approch)
+
+struct BankAccount
+{
+	char nm[40];
+	int accno;
+	char pass[20];
+};
+void input(struct BankAccount& t)
+{
+	cout<<endl<<"enter the account holder name: ";
+	cin.getline(t.nm,40);
+	cout<<endl<<"enter the account number: ";
+	cin>>t.accno;
+	cout<<endl<<"enter the account password: ";
+	cin.getline(t.pass,40);
+}
+void display(struct BankAccount k)
+{
+	cout<<endl<<"Name: "<<k.nm<<"\t Account Number: "<<k.accno<<"\t Password: "<<k.pass;
+}
+int main()
+{
+	struct BankAccount b1,b2;
+
+	input(b1);
+	display(b1);
+
+	input(b2);
+	display(b2);
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+
+	In above case as the account data b, moving from function to fuction and every
+	function able to access it. the account data is not secure.
+
+	to attend the security to data lets use the class
+
+#include<iostream>
+using namespace std;
+
+class BankAccount
+{
+  private:
+	char nm[40];
+	int accno;
+	char pass[20];
+  public:
+	void input()
+	{
+		cout<<endl<<"enter the account holder name: ";
+		cin.getline(nm,40);
+		cout<<endl<<"enter the account number: ";
+		cin>>accno;
+		cout<<endl<<"enter the account password: ";
+		cin.ignore();
+		cin.getline(pass,40);
+	}
+	void display()
+	{
+		cout<<endl<<"Name: "<<nm<<"\t Account Number: "<<accno<<"\t Password: "<<pass;
+	}
+};
+
+int main()
+{
+	BankAccount b1, b2;
+
+	b1.input();
+	b2.input();
+
+	b1.display();
+	b2.display();
+
+	return 0;
+}
+
+
+
+		b1 ____________________________		b2 ____________________________
+		  |			     |		   |			     |
+		  | nm    [][][][][][][][]   |		   | nm    [][][][][][][][]  |
+		  | accno [     ]	     |  	   | accno [     ]	     |
+		  | pass  [][][][][][]	     |		   | pass  [][][][][][]	     |
+		  |		    ^	     |	           |		    ^	     |
+		  |______________|  |  |_____|		   |______________| |  |_____|	
+		  |		    |	     |   	   |		    |	     |
+		  | void input() {...}	     |		   | void input() {...}	     |
+		  | void display() {...}     |		   | void display() {...}    |
+		  |			     |		   |			     |
+		  |		    ^	     |		   |		    ^	     |
+		  |______________|  |  |_____|		   |______________| |  |_____|
+				    |					    |
+
+
+	// Procedure Oriented Programming(POP):
+		
+	- More efforts are taken for defining the procedures. (Doing Things)
+	- data moving from function to function for processing.
+	- As the data is global, it having less security.
+	- Normally it employs the modular opproach, and the function transforms the data from
+	  one form to another.
+	- Employs top-down approach in program design.
+
+	
+	//  Object Oriented Programming(OOP):
+
+	- The data is core area of interst rather than defining the procedures.
+	- Program is divided into number of objects.
+	- Data structures are designed in a such way that they characterize the object
+	- The function which process the data is wrapped in the same object which hold the data.
+	- To attend the security, the data is normally decl. in private area of class
+	- You can add new data and functions easily.
+	- Follows the bottom-up approach in program design.
+
+// important Pilars of OOP:
+
+
+	1. class: It is just templete which is used to characterize the object.
+		 It defines the data and code to manipulate that data. It defines 3 different
+		 sections (public, protected and private). 
+		 In other words, It is specification(collection of rules) or blueprint which is implemented
+		 while creating the object.
+		Note that the private members are not accessible using . operator directly from outside
+		of class, and public member can be accessed.
+
+		syntax:
+		class <cls_nm>
+		{
+			private:
+				<data_members>;
+				<member_functions>(){};
+			protected:
+				<data_members>;
+				<member_functions>(){};
+			public:
+				<data_members>;
+				<member_functions>(){};
+		};
+		
+		e.g.
+		class student
+		{
+		      private:       
+			char nm[40];
+			int rno;
+			int age;
+			float per;
+		      public:
+			void input(){ ... }
+			void display() {...}
+		};
+
+
+	2. Object:
+		  In simple terms, " It is variable of class type". or it is instance of class. Basically it is 
+		  runtime entity in which entire program is divided. When it gains the memory space, note that 
+		  it contain data and code to manuplate that data, which is divied into private, 
+		  protected and public section, from which the private is not accessible to using
+		  dot operator directly, and public members of class can be accessed using the 
+		  . operator rom outside of class
+		
+		 Basically it is actual implementation of specifications defined using class.
+
+		syntax:
+			<class_nm> <obj_nm>;
+			e.g.
+				student s;
+
+		s
+		________________________________
+		|private:			|
+		|				|
+		|   nm    rno    age   per	|
+		|   [ ]    []    []     []	|
+		|				|
+		|				|
+		|				|
+		|__________________| ^ |________|
+		|public:	     |		|
+		|				|		
+		| void input(){.....}		|
+		| void display(){.....}		|
+		|				|
+		|				|
+		|__________________| ^ |________|
+				     |	
+
+
+	3. data hiding: The private data of class is not accessible directly using the dot
+			operator, means that data is get hided from outside world, which is
+			known as data hiding.  
+				
+			The Data Hiding provides the security to data.
+
+	4. Encapsulation: Wrapping up of data members and member functions together under
+			  single unit is known as encapsulation. 
+
+			Here in class the data member and member functions are encapsulated together.
+				
+	5. Abstraction: In simple words "Without knowing too much about it"
+			It is an art of defining the new type(class) without including its background details.
+
+			here in case of class and object, we dont think about the amount of
+			memory as well as its representation in the memory(memory map), means
+			we are abstract about it.
+
+			The data types which supports abstraction known as Abstract Data Types (ADT)
+
+//=========================================================================================================
+
+	// Create the class student and input/display the info of two students.
+
+		s1		s2
+		[ ]		[ ]
+
+		
+		________________________________
+		|private:			|
+		|				|
+		|   nm    rno    age   per	|
+		|   [ ]    []    []     []	|
+		|				|
+		|				|
+		|				|
+		|__________________| ^ |________|
+		|public:	     |		|
+		|				|		
+		| void input(){.....}		|
+		| void display(){.....}		|
+		|				|
+		|				|
+		|__________________| ^ |________|
+				     |	
+#include<iostream>
+using namespace std;
+class Student
+{
+    private:       
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input()
+	{
+		cout<<endl<<"Enter the student name: ";
+		cin.ignore();
+		cin.getline(nm,40);
+
+		cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+		cin>>rno>>age>>per;
+	}
+	void display() 
+	{
+		cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+	}
+};
+int main()
+{
+	Student s1, s2;
+
+	s1.input();
+	s2.input();
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Passing the arguments to member functions.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Student
+{
+    private:
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input(char a_nm[], int a_rno, int a_age, float a_per)
+	{
+		strcpy(nm,a_nm);
+		rno=a_rno;
+		age=a_age;
+		per=a_per;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+	}
+};
+int main()
+{
+	Student s1, s2;
+
+	s1.input("Ajit",11,23,78.56);
+
+	char m_nm[50];
+	int m_rno, m_age;
+	float m_per;
+
+	cout<<endl<<"Enter the student name: ";
+	//cin.ignore();
+	cin.getline(m_nm,40);
+	cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+	cin>>m_rno>>m_age>>m_per;
+
+	s2.input(m_nm, m_rno, m_age, m_per);
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+
+	// Defining member function outside of class
+
+	In C++, you are allowed to define the member functuin outside of class with out changine the
+	basic meaning. In such case same function must be decl. within class.
+
+	def. syntax:
+
+		<ret_type> <class_nm>::<function_nm>(<argu_if_any>)
+		{
+			------------------;
+			------------------;
+			------------------;
+		}
+
+		
+
+class Student
+{
+    private:       
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input();
+	void display();
+};
+void Student::input()
+{
+	cout<<endl<<"Enter the student name: ";
+	cin.getline(nm,40);
+
+	cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+	cin>>rno>>age>>per;
+}
+void Student::display() 
+{
+	cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+}
+
+int main()
+{
+	Student s1, s2;
+
+	s1.input();
+	s2.input();
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// Array of objects
+
+		iar
+		 [] [] [] [] [] [] [] [] []
+
+	// Enter the item code and price and display the list.
+
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	Item iar[3];
+	int i;
+
+	cout<<"\n Enter the details of 3 Items: ";
+	for(i=0;i<3;i++)
+	{
+		iar[i].indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<3;i++)
+	{
+		iar[i].outdata();
+	}
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// pointer to objects
+
+		*p
+		 [] -------> [] [] [] [] [] [] [] []
+
+	// Enter the item code and price and display the list.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		p[i].indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		p[i].outdata();
+	}
+
+	return 0;
+}
+
+
+	// same program using pointer notations
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->outdata();
+	}
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+	// Returning data from member function
+
+	// Enter the item code and price and display the list and total
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+	float getprice()
+	{
+		return iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->outdata();
+	}
+
+	// total calc
+
+	float tot=0.0;
+	for(i=0;i<cnt;i++)
+	{
+		tot=tot+(p+i)->getprice();
+	}
+	cout<<endl<<"Total Bill: "<<tot;
+	
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+	
+	// Function overloading
+
+class Rect
+{
+	int len;
+	int brd;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the length and Breadth of rect: ";
+		cin>>len>>brd;
+	}
+	void in(int a)
+	{
+		len=a;
+		brd=a;
+	}	
+	void in(int a1, int a2)
+	{
+		len=a1;
+		brd=a2;
+	}
+	void out()
+	{
+		cout<<endl<<"Length: "<<len<<"\t Breadth: "<<brd;
+	}
+	int area()
+	{
+		return (len*brd);
+	}
+};
+int main()
+{
+	Rect rob1;
+	rob1.in();
+	rob1.out();
+	cout<<endl<<"Area of rect-1: "<<rob1.area();
+
+	Rect rob2;
+	rob2.in(5);
+	rob2.out();
+	cout<<endl<<"Area of rect-2: "<<rob2.area();
+
+	Rect rob3;
+	int x,y;
+	cout<<endl<<"Enter the length and Breadth of rect: ";
+	cin>>x>>y;
+	rob3.in(x,y);
+	rob3.out();
+	cout<<endl<<"Area of rect-3: "<<rob3.area();
+
+	return 0;
+}
+//-------------------------------------------------------------------------------------------------------------
+
+	// Nesting of member function
+
+	//  Define the class Number and define some functions within it to process the value.
+#include<iostream>
+using namespace std;
+class Number
+{
+	int no;
+    public:
+	void input(int a)
+	{
+		no=a;
+	}
+	void output()
+	{
+		cout<<endl<<"Number is: "<<no;
+	}
+	int getreverse()
+	{
+		int rev=0;
+		int n=no;
+		while(n!=0)
+		{
+			rev=(rev*10)+(n%10);
+			n=n/10;
+		}
+		return rev;
+	}
+	char ispalindrome()
+	{
+		if(no==getreverse())
+			return 'y';
+		else
+			return 'n';
+	}
+};
+int main()
+{
+	int t;
+	cout<<endl<<"Enter the no: ";
+	cin>>t;
+
+	Number nob;
+	nob.input(t);
+	nob.output();
+	cout<<endl<<"Reverse is: "<<nob.getreverse();
+
+	Number ob1;
+	cout<<endl<<"Enter the no: ";
+	cin>>t;
+	ob1.input(t);
+	ob1.output();
+
+	char ans=ob1.ispalindrome();
+	if(ans=='y')
+		cout<<endl<<"Number is Palindrome";
+	else
+		cout<<endl<<"Number is not Palindrome";
+
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// Array as a member of class
+
+class MyArray
+{
+	int x[10];
+	void in()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cin>>x[i];
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cout<<"    "<<x[i];
+		}
+	}
+};
+
+int main()
+{
+	MyArray ob1;
+
+	ob1.in();
+	ob1.out();
+
+	return 0;
+}
+
+
+//-------------------------------------------------------------------------------
+
+	// Add one more member function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class MyArray
+{
+	int x[10];
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cin>>x[i];
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cout<<"    "<<x[i];
+		}
+	}
+	int getprimecount()
+	{
+	    int i,cnt=0,d,flg;
+	    for(i=0;i<10;i++)
+        {
+            d=2;
+            flg=0;
+            while(d<=(x[i]/2))
+            {
+                if(x[i]%d==0)
+                {
+                    flg=1;
+                    break;
+                }
+                d++;
+            }
+            if(flg==0)
+                cnt++;
+        }
+        return cnt;
+	}
+};
+
+int main()
+{
+	MyArray ob1;
+
+	ob1.in();
+	ob1.out();
+
+	int t=ob1.getprimecount();
+	cout<<endl<<"Prime Count is: "<<t;
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Pointer as a member of class
+
+class MyDynamicType
+{
+	int *p;
+	int cnt;
+      public:
+	void in()
+	{
+		cout<<endl<<"Enter the count: ";
+		cin>>cnt;
+		p=new int[cnt];
+
+		cout<<endl<<"Enter the "<<cnt<<" elements: ";
+		for(int i=0;i<cnt;i++)
+		{
+			cin>>*(p+i);
+		}
+
+	}	
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<cnt;i++)
+		{
+			cout<<"   "<<*(p+i);
+		}
+	}
+	int countEvens()
+	{
+		int ec=0;
+		for(int i=0;i<cnt;i++)
+		{
+			if(*(p+i)%2==0)
+			{
+				ec++;
+			}
+		}
+		return ec;
+	}
+};
+
+int main()
+{
+	MyDynamicType ob;
+
+	ob.in();
+	ob.out();
+	cout<<endl<<"Even Count: "<<ob.countEvens();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+  
+   homework
+
+	// Menu driven program
+	// we have to store the runs scored by 3 players in N matches
+	// find current top scorer
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Passing object as an argument to member function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	void addcomplex(Complex a, Complex b)
+	{
+		real=a.real+b.real;
+		img=a.img+b.img;
+	}
+};
+
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3.addcomplex(c1,c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Another way - * Returning the object from member function *
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	Complex addcomplex(Complex a)
+	{
+		Complex t;
+		t.real=real+a.real;
+		t.img=img+a.img;
+		return t;
+	}
+};
+
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3=c1.addcomplex(c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+
+	// Using friend function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	friend Complex addcomplex(Complex a, Complex b);
+};
+
+Complex addcomplex(Complex a, Complex b)
+{
+	Complex t;
+	t.real=a.real+b.real;
+	t.img=a.img+b.img;
+	return t;
+}
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3=addcomplex(c1,c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+	// Write a program to add two time objects
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time addtime(Time a)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+		Time tmp;				//-1----1-------
+		tmp.ss = ss + a.ss;			// 9 : 11 : 35 
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+		
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t2.addtime(t1);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+
+//------------------------------------------------------------------------------
+
+	// another way
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(Time a,Time b)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+							//-1----1-------
+		ss = b.ss + a.ss;			// 9 : 11 : 35 
+		mm = b.mm + a.mm + (ss/60);
+		ss = ss%60;
+		
+		hh = b.hh + a.hh + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(t1,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(Time a,Time b)			// 3 : 40 : 45
+	{						// 5 : 30 : 50
+							//-1----1-------
+		ss = b.ss + a.ss;			// 9 : 11 : 35
+		mm = b.mm + a.mm + (ss/60);
+		ss = ss%60;
+
+		hh = b.hh + a.hh + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(t1,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------
+
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(int x,Time b)			// 3 : 40 : 55
+	{						// 10: 10 : 10
+							//-1----1-------
+		ss = b.ss + x;				// 13 : 51 : 05
+		mm = b.mm + x + (ss/60);
+		ss = ss%60;
+
+		hh = b.hh + x + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(10,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//==============================================================================================================
+
+	// static data member and static member function
+
+class Item
+{
+	int ic;
+	float ip;
+	static float tot;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the code and price: ";
+		cin>>ic>>ip;
+		tot=tot+ip;
+	}
+	void out()
+	{
+		cout<<endl<<"Item Code: "<<ic<<"\t Price: "<<ip;
+	}
+	void showtot()
+	{
+		cout<<"\n Total Bill: "<<tot;
+	}
+};
+float Item::tot;
+int main()
+{
+	Item i1, i2, i3;
+
+	i1.in();
+	i2.in();
+	i3.in();
+	
+	i1.out();
+	i2.out();
+	i3.out();
+	
+	i1.showtot();	// i_.showtot();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Using static data member and static member function
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int ic;
+	float ip;
+	static float tot;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the code and price: ";
+		cin>>ic>>ip;
+		tot=tot+ip;
+	}
+	void out()
+	{
+		cout<<endl<<"Item Code: "<<ic<<"\t Price: "<<ip;
+	}
+	static void showtot()
+	{
+		cout<<"\n Total Bill: "<<tot;
+	}
+};
+//float Item::tot;
+float Item::tot=100; 
+int main()
+{
+	Item::showtot();
+	Item i1, i2, i3;
+
+	i1.in();
+	i2.in();
+	i3.in();
+
+	i1.out();
+	i2.out();
+	i3.out();
+
+	Item::showtot();	
+
+	return 0;
+}
+
+
+//============================================================================================
+
+	// another example
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Player
+{
+	int id;
+	char nm[50];
+	int score;
+	static int m50,m100;
+    public:
+	void input()
+	{
+		cout<<endl<<"Enter the name, id and runs scored by players";
+		cin>>nm>>id>>score;
+		if(score>=100)
+		{
+			m100++;
+		}
+		else if(score>=50)
+		{
+			m50++;
+		}
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<nm<<"\t Id: "<<id<<"\t Runs scored: "<<score;
+	}
+	static void getcn_fif()
+	{
+		cout<<endl<<"No of 100s: "<<m100<<"\t No of 50s: "<<m50;
+	}
+};
+int Player::m50, Player::m100;
+int main()
+{
+	Player m1[11];
+
+
+	for(int i=0;i<11;i++)
+	{
+		m1[i].input();
+	}
+
+	cout<<endl<<"------------------ Score Card ------------------\n";
+	for(int i=0;i<11;i++)
+	{
+		m1[i].output();
+	}
+	Player::getcn_fif();
+
+	return 0;
+}
+//----------------------------------------------------------------------------------------------
+	
+	// Using static methods
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Number
+{
+    public:
+	static int findsqure(int n)
+	{
+		return n*n;
+	}
+	static int findcube(int n)
+	{
+		return n*n*n;
+	}
+	static char iseven(int n)
+	{
+		if(n%2==0)
+			return 'y';
+		else
+			return 'n';
+	}
+	static int getmax(int n1, int n2)
+	{
+		if(n1>n2)
+			return n1;
+		else
+			return n2;
+	}
+};
+
+int main()
+{
+	int no;
+
+	cout<<endl<<"Enter any no: ";
+	cin>>no;
+	cout<<"\n squre of number is: "<<Number::findsqure(no);
+
+	cout<<endl<<"Enter any no: ";
+	cin>>no;
+	cout<<"\n Cube of number is: "<<Number::findcube(no);
+
+	if(Number::iseven(no)=='y')
+	{
+		cout<<endl<<"Number is even";
+	}
+	else
+	{
+		cout<<endl<<"Number is Odd";
+	}
+
+	int t=Number::getmax(no,100);
+	cout<<endl<<"Max no: "<<t;
+
+	return 0;
+}
+///---------------------------------------------------------------------------------------------
+
+	// Friend Function
+
+		- outside function as a friend of class
+		- Member function of one class as a friend of another
+		- friend class - all member functions of one class as a friend of another class
+
+
+	// - outside function as a friend of class
+
+#include <iostream>
+using namespace std;
+class Person
+{
+   private: 
+	char nm[50];
+	int age;
+   public: 
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}	
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void showinfo(Person);
+};
+void showinfo(Person a)
+{
+	cout<<endl<<"Person Information - Name: "<<a.nm<<"\t Age: "<<a.age;
+}
+int main()
+{
+	Person ob;
+	ob.in();
+	ob.display();
+
+	showinfo(ob);	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+	// Outside function as a friend of two or more classes
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Student; // Forward decl.
+class Person
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void FindElder(Person a, Student b);
+};
+class Student
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of student: ";
+		cin.ignore();
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void FindElder(Person a,Student b);
+};
+
+void FindElder(Person a, Student b)
+{
+	if(a.age>b.age)
+		cout<<endl<<"Elder Information - Name: "<<a.nm<<"\t Age: "<<a.age;
+	else
+		cout<<endl<<"Elder Information - Name: "<<b.nm<<"\t Age: "<<b.age;
+}
+int main()
+{
+	Person p;
+	p.in();
+	p.display();
+
+	Student s;
+	s.in();
+	s.display();
+
+	FindElder(p,s);
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	// - Member function of one class as a friend of another
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Person;
+class Student
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of student: ";
+		cin.ignore();
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	void findelder(Person p);
+};
+
+class Person
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void Student::findelder(Person p);
+};
+
+void Student::findelder(Person p)
+{
+    cout<<endl<<"Elder Details"<<endl;
+    if(age>p.age)
+    {
+        display();
+    }
+    else
+    {
+        p.display();
+    }
+}
+
+int main()
+{
+	Person p;
+	p.in();
+
+	Student s;
+	s.in();
+
+	p.display();
+	s.display();
+
+	s.findelder(p);
+	return 0;
+}
+//---------------------------------------------------------------------------------------------------------
+
+	// - friend class - all member functions of one class as a friend of another class
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class B;
+class A
+{
+   private:
+	int a;
+	friend class B;
+};
+class B
+{
+    private:
+	int b;
+    public:
+	void in(A& ob)
+	{
+		cout<<"Enter the val of a: ";
+		cin>>ob.a;
+		cout<<"Enter the val of b: ";
+		cin>>b;
+	}
+	void out(A ob)
+	{
+		cout<<endl<<"a: "<<ob.a;
+		cout<<endl<<"b: "<<b;
+	}
+};
+int main()
+{
+	A ob1;
+	B ob2;
+
+	ob2.in(ob1);
+	ob2.out(ob1);
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+
+	// Swaping the private data of class using friend function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class B;
+class A
+{
+   private:
+	int a;
+   public:
+	void in()
+	{
+		cout<<"Enter the val of a: ";
+		cin>>a;
+	}
+	void out()
+	{
+		cout<<endl<<"a: "<<a;
+	}
+	friend void swapdata(A &a1, B &b1);
+};
+class B
+{
+    private:
+	int b;
+    public:
+	void input()
+	{
+		cout<<"Enter the val of b: ";
+		cin>>b;
+	}
+	void output()
+	{
+		cout<<endl<<"b: "<<b;
+	}
+	friend void swapdata(A &a1, B &b1);
+};
+void swapdata(A &a1, B &b1)
+{
+    int tmp;
+    tmp=a1.a;
+    a1.a=b1.b;
+    b1.b=tmp;
+}
+int main()
+{
+    A ob1;
+    B ob2;
+
+    ob1.in();
+    ob2.input();
+
+    cout<<endl<<"---------- Before Swap -------------";
+    ob1.out();
+    ob2.output();
+
+    swapdata(ob1,ob2);
+
+    cout<<endl<<"---------- After Swap -------------";
+    ob1.out();
+    ob2.output();
+
+    return 0;
+}
+
+//========================================================================================
+//========================================================================================
+
+	Constructor and Destructor
+
+		Constructor: These are special public member function of class, having name same as that of
+			     class in which it is declared, don't have any return type, not even void and 
+			     invoked automatically when object of class is created.
+
+			There are different types of constructors, which are as listed below
+				- Default Constructor
+				- Parameterised Constructor
+				- Dynamic Constructor
+				- copy constructor
+
+
+	// Destructors: It is same as that of default constructor, but preceeded with ~(tidel) sign, and
+			invoked automatically, when object moves out of scope.
+
+			- note carefuly that, it will not collecting any argument.
+			- It is actually used to release the resources hold by the object. means it will be
+			  used to perform the last operation on the object like file closeing, just before
+			  becoming inaccessible.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Sample
+{
+	int data;
+    public:
+	Sample()
+	{
+		cout<<"\n Object is created";
+		data=100;
+	}
+	~Sample()
+	{
+		cout<<"\n Object is Deleted";
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the data: ";
+		cin>>data;
+	}
+	void outdata()
+	{
+		cout<<"Data is: "<<data;
+	}
+};
+int main()
+{
+	Sample ob1;
+
+	cout<<endl<<"Before input: ";
+    	cout<<endl<<"For Ob1: ";
+	ob1.outdata();
+
+	ob1.indata();
+    	cout<<endl<<"For Ob1: ";
+	ob1.outdata();
+
+	{
+	    Sample ob2;
+	    cout<<endl<<"For Ob2: ";
+	    ob2.outdata();
+	}
+    	cout<<endl<<"Main ends";
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Demo
+{
+	static int cnt;
+    public:
+	Demo()
+	{
+		cnt++;
+		cout<<"\n Object "<<cnt<<" is created";
+	}
+	~Demo()
+	{
+		cout<<"\n Object "<<cnt<<" is deleted";
+		cnt--;
+	}
+};
+int Demo::cnt;
+int main()
+{
+	cout<<endl<<"\n program start";
+
+	Demo d1,d2;
+
+	cout<<endl<<"\n In main";
+	{
+		cout<<endl<<"\n At start of inner scope";
+		Demo d3,d4;
+		cout<<endl<<"\n At end of inner scope";
+	}
+	cout<<endl<<"\n out of inner scope";
+
+	cout<<endl<<"\n program end";
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Lets see the different types of constructor
+
+
+	- Default Constructor: It will not collect any argument.
+class Demo
+{
+	int x;
+    public:
+	Demo() // Default constructor
+	{
+		x=10;
+		cout<<"In Default Constructor";
+	}
+	void input()
+	{
+		cout<<endl<<"\n Enter the data: ";
+		cin>>x;
+	}
+	void output()
+	{
+		cout<<endl<<"x is: "<<x;
+	}
+}
+int main()
+{
+	Demo ob;
+
+	ob.output();
+
+	ob.input();
+	ob.output();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+ //defining the constructor outside of class
+
+
+class Demo
+{
+	int x;
+    public:
+	Demo();
+	void input()
+	{
+		cout<<endl<<"\n Enter the data: ";
+		cin>>x;
+	}
+	void output()
+	{
+		cout<<endl<<"x is: "<<x;
+	}
+}
+Demo::Demo() // Default constructor
+{
+	x=10;
+	cout<<"In Default Constructor";
+}
+int main()
+{
+	Demo ob;
+
+	ob.output();
+
+	ob.input();
+	ob.output();
+
+	return 0;
+}
+
+
+/---------------------------------------------------------------------------------------------------------------------
+
+// - Parameterised Constructor : Constructor which collects an arguments.
+
+#include<iostream>
+using namespace std;
+class Demo
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Demo()// Default constructor
+	{
+		cout<<endl<<"In Default constructor";
+		x=1;
+		y=2.3;
+		z=56.341;
+	}
+	Demo(int t)//Parameterised constructor
+	{
+	    cout<<endl<<"In Parameterised constructor-1";
+	    x=t;
+	    y=t;
+	    z=t;
+	}
+	Demo(int a1, float a2, double a3) // Parameterised constructor
+	{
+	    cout<<endl<<"In Parameterised constructor-2";
+	    x=a1;
+	    y=a2;
+	    z=a3;
+	}
+	void out()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	int a=11;
+	float b=5.3;
+	double c=34.23;
+	Demo ob2(a,b,c); // implicit call
+	ob2.out();
+
+	Demo ob3=Demo(a,b,c); // explicit call
+	ob3.out();
+	
+	Demo ob4(10);
+	ob4.out();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------
+
+	// Dynamic Constructor: Used to allocated the memory for class member.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    private:
+	int *p;
+	int ec;
+    public:
+	Demo() // dynamic constructor
+	{
+		p=new int[5];
+		ec=5;
+		cout<<endl<<"Enter 5 Nos: ";
+		for(int i=0;i<5;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	Demo(int cnt) // dynamic constructor
+	{
+		p=new int[cnt];
+		ec=cnt;
+		cout<<endl<<"Enter "<<cnt<<" Nos: ";
+		for(int i=0;i<ec;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<ec;i++)
+		{
+			cout<<setw(5)<<*(p+i);
+		}
+	}
+};
+
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	Demo ob2(7);
+	ob2.out();
+	
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	//  copy constructor
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Demo
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Demo()	// Default constructor
+	{
+		cout<<endl<<"In Default constructor";
+		x=1;
+		y=2.3;
+		z=56.341;
+	}
+	Demo(int a1, float a2, double a3) // Parameterized constructor
+	{
+		cout<<endl<<"In Parameterized constructor";
+	    x=a1;
+	    y=a2;
+	    z=a3;
+	}
+	Demo(Demo &t) // Copy constructor
+	{
+	    cout<<endl<<"In Copy constructor";
+	    x=t.x;
+	    y=t.y;
+	    z=t.z;
+	}
+	void out()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	Demo ob2(11,2.3,12.45); 
+	ob2.out();
+	
+	Demo ob4(ob2);
+	ob4.out();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------
+
+	// Passing default arguments to constructor:
+
+class Time
+{
+    private:
+	int hours;
+	int mins;
+	int secs;
+    public:
+	Time()
+	{
+		hours=0;
+		mins=0;
+		secs=0;
+	}
+	Time(int a)
+	{
+		hours=a;
+		mins=a;
+		secs=a;
+	}
+	Time(int a1, int a2, int a3=10) // check carefully that it will not creating ambiguilty
+	{
+		hours=a1;
+		mins=a2;
+		secs=a3;
+	}
+	void showtime()
+	{
+		cout<<endl<<"Time is: "<<hours<<":"<<mins<<":"<<secs;
+	}
+}; 
+int main()
+{
+	Time t1;
+	t1.showtime();
+
+	Time t2(5);
+	t2.showtime();
+
+	Time t3(2,30,50);
+	t3.showtime();
+
+	Time t4(2,30);
+	t4.showtime();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// Constructor Overloading: It simply refers to defining multiple constructors in a same class,
+				    but differ in the signature(prototype).
+
+	e.g. It above example, we have decl. 3 different constructors as shown
+
+
+class Time
+{
+    private:
+	int hours;
+	int mins;
+	int secs;
+    public:
+	Time()
+	{
+		hours=0;
+		mins=0;
+		secs=0;
+	}
+	Time(int a)
+	{
+		hours=a;
+		mins=a;
+		secs=a;
+	}
+	Time(int a1, int a2, int a3=10) // check carefully that it will not creating ambiguilty
+	{
+		hours=a1;
+		mins=a2;
+		secs=a3;
+	}	
+	.......
+}; 
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Destructors: It is same as that of default constructor, but preceeded with ~(tidel) sign, and
+			invoked automatically, when object moves out of scope.
+
+			- note carefuly that, it will not collecting any argument.
+			- It is actually used to release the resources hold by the object. means it will be
+			  used to perform the last operation on the object like file closeing, just before
+			  becoming inaccessible.
+
+class Demo
+{
+    public:
+	Demo()
+	{
+		cout<<endl<<"Object is Created";
+	}
+	~Demo()
+	{
+		cout<<endl<<"Object is Deleted";
+	}
+};
+int main()
+{
+	demo ob1;
+	return 0;
+}
+
+//---------------------------------------
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    private:
+	int *p;
+	int ec;
+    public:
+	Demo() // dynamic constructor
+	{
+		p=new int[5];
+		ec=5;
+		cout<<endl<<"Enter 5 Nos: ";
+		for(int i=0;i<5;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<ec;i++)
+		{
+			cout<<setw(5)<<*(p+i);
+		}
+	}
+	~Demo()
+	{
+	    delete p;
+	}
+};
+
+int main()
+{
+    {
+	Demo ob1;
+    	ob1.out();
+    }
+	//......
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------
+
+	// defining const member in class and its initialisation using initialisation list
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Sample
+{
+    private:
+	const int x;
+    public:
+	Sample(): x(10)
+	{
+		// x=1000; //error: assignment of read-only member 'Sample::x'|
+	}
+	Sample(int a):x(a)
+	{	
+		// x=2000; //error: assignment of read-only member 'Sample::x'|	
+	}
+	void show()
+	{
+		cout<<endl<<"x is "<<x;
+	}
+};
+int main()
+{
+	Sample s1;
+	s1.show();
+	
+	Sample s2(20);
+	s2.show();
+
+	return 0;
+}
+
+- Note carefully that initialisation list will work before the constructor body.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Sample
+{
+    private:
+	const int x;
+    public:
+	Sample(): x(10)
+	{
+	    cout<<endl<<"In Default Constructor x is "<<x;
+	}
+	Sample(int a):x(a)
+	{
+	    cout<<endl<<"In para Constructor x is "<<x;
+	}
+};
+int main()
+{
+	Sample s1;
+	
+	Sample s2(20);
+
+	return 0;
+}
+
+//---------------------------------------
+
+	// You can use the initialisation list to init. multiple members also
+
+class Sample
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Sample():x(10), y(4.5), z(5.45)
+	{	
+		cout<<endl<<"In Default Constructor";
+	}
+	Sample(int a):x(a), y(a), z(a)
+	{
+		cout<<endl<<"In Para-1 Constructor";	
+	}
+	Sample(int a, float b, double c):x(a), y(b), z(c)
+	{
+		cout<<endl<<"In para-2 Constructor";	
+	}
+	void display()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Sample s1;
+	s1.display();
+	
+	Sample s2(100);
+	s2.display();
+	
+	Sample s3(10,23.45,78.453);
+	s3.display();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+
+	// const object and const function
+
+#include <iostream>
+using namespace std ;
+
+class Sample
+{
+    private:
+	int x;
+	float y;
+    public:
+	Sample()
+	{
+		x=10;
+		y=12.34;
+	}
+	Sample(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void modify()
+	{
+	    y=x=111;
+	}
+	void display() const    // constant function
+	{
+	    // x=11;    // will generate an error coz the object is constant
+		cout<<endl<<"x="<<x<<"\t y="<<y;
+	}
+};
+int main()
+{
+	const Sample s1; // const object
+	s1.display();
+
+	const Sample s2(56, 89.67); // const object
+	s2.display();
+	
+	// s2.modify();     // will generate an error coz the object is constant
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+	// Dynamic initialisation of object
+
+ // Using the constructor for the memory allocation and destructor for memory release
+
+	**p                       0     1    2    3    4 
+	 [ 400 ] ------------->  [600] [  ] [  ] [  ] [  ]
+                               400 |    |    ......
+				   |    V
+				   |    [0][0][0]
+				   V
+				   [0][0][0][0][0]
+				  600
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std ;
+class Student
+{
+    private:
+	int **p;
+	int *sub;
+	int sc;
+    public:
+	Student(){}
+	Student(int n)
+	{	
+		sc=n;
+		int i,j;
+		p=(int**)malloc(n*sizeof(int*));
+		sub=(int*)malloc(n*sizeof(int));
+		for(i=0;i<n;i++)
+		{
+			cout<<endl<<"Enter the subject count of "<<(i+1)<<" student:";
+			cin>>*(sub+i);
+			*(p+i)=(int*)malloc(*(sub+i)*sizeof(int));
+			for(j=0;j<*(sub+i);j++)
+			{
+				*(*(p+i)+j)=0;
+			}
+		}
+	}
+	void inputdata()
+	{		
+		int i,j;
+		cout<<endl<<"Enter the marks of "<<sc<<" students: ";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Enter the marks in "<<*(sub+i)<<" subjects: ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cin>>*(*(p+i)+j);
+			}
+		}
+		
+	}
+	void outputdata()
+	{		
+		int i,j;
+		cout<<endl<<"The marks of "<<sc<<" students: \n";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Student "<<i+1<<": ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cout<<setw(8)<<*(*(p+i)+j);
+			}
+		}		
+	}
+	~Student()
+	{
+		int i,j;
+		for(i=0;i<sc;i++)
+		{
+			free(*(p+i));	
+			cout<<endl<<"Memory released - student "<<(i+1);
+		}
+		free(p);
+	}
+};
+int main()
+{
+	cout<<endl<<"Enter the student count: ";
+	int cnt;
+	cin>>cnt;
+	Student s1(cnt);
+
+	s1.inputdata();
+	s1.outputdata();
+
+	return 0;
+}
+
+//-----------------------------------
+
+#include <iostream>
+#include <iomanip>
+using namespace std ;
+class Student
+{
+    private:
+	int **p;
+	int *sub;
+	int sc;
+    public:
+	Student(){}
+	Student(int n)
+	{	
+		sc=n;
+		int i,j;
+		// p=(int**)malloc(n*sizeof(int*));
+		p=new int*[n];
+		//sub=(int*)malloc(n*sizeof(int));
+		sub=new int[n];
+		for(i=0;i<n;i++)
+		{
+			cout<<endl<<"Enter the subject count of "<<(i+1)<<" student:";
+			cin>>*(sub+i);
+			// *(p+i)=(int*)malloc(*(sub+i)*sizeof(int));
+			*(p+i)=new int[*(sub+i)];
+			for(j=0;j<*(sub+i);j++)
+			{
+				*(*(p+i)+j)=0;
+			}
+		}
+	}
+	void inputdata()
+	{		
+		int i,j;
+		cout<<endl<<"Enter the marks of "<<sc<<" students: ";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Enter the marks in "<<*(sub+i)<<" subjects: ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cin>>*(*(p+i)+j);
+			}
+		}
+		
+	}
+	void outputdata()
+	{		
+		int i,j;
+		cout<<endl<<"The marks of "<<sc<<" students: \n";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Student "<<i+1<<": ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cout<<setw(8)<<*(*(p+i)+j);
+			}
+		}		
+	}
+	~Student()
+	{
+		int i,j;
+		for(i=0;i<sc;i++)
+		{
+			//free(*(p+i));	
+			delete *(p+i);
+			cout<<endl<<"Memory released - student "<<(i+1);
+		}
+		//free(p);
+		delete p;
+	}
+};
+int main()
+{
+	cout<<endl<<"Enter the student count: ";
+	int cnt;
+	cin>>cnt;
+	Student s1(cnt);
+
+	s1.inputdata();
+	s1.outputdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------- 
+//---------------------------------------------------------------------------------------------------------------------- 
+
+		---------------------------- Operator Overloading ---------------------------------
+
+//---------------------------------------------------------------------------------------------
+
+		// Operator Overloading and Type Conversion
+
+	In this topic, we have to see another special function which will be called when
+	we operate an operator on the object, In that case type definition of object must
+	contain that special function.
+
+	That function called special coz its name starts with operator keyword and ends with
+	the operator symbol to which you want to assign an additional meaning.
+
+	i.e.
+		<returning_type> operator<op>(<argument_list>)
+		{
+			-------------------;
+			-------------------;
+			-------------------;
+			-------------------;
+		}
+
+ lets see simple example,
+
+class Sample
+{
+	int x;
+   public:
+	void in()
+	{	
+		//------------------
+	}
+	void out()
+	{	
+		//------------------
+	}
+	void operator-()
+	{
+		cout<<endl<<"-operator operated on sample object";
+	}
+};
+int main()
+{
+	Sample ob1;
+	
+	-ob1;		// ob1.operator-()
+
+	return 0;
+}
+
+ ------ Output ------
+
+-operator operated on sample object
+Process returned 0 (0x0)   execution time : 0.054 s
+Press any key to continue.
+
+	// lets use the +
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Sample
+{
+	int x;
+   public:
+	void in()
+	{
+		//------------------
+	}
+	void out()
+	{
+		//------------------
+	}
+	void operator-()
+	{
+		cout<<endl<<"-operator operated on sample object";
+	}
+	void operator+(Sample t)
+	{
+		cout<<endl<<"+operator operated on sample objects";
+	}
+};
+int main()
+{
+	Sample ob1,ob2;
+
+	ob1+ob2;        /// ob1.operator+(ob2)
+
+	return 0;
+}
+
+---------- Output ------------
++operator operated on sample objects
+Process returned 0 (0x0)   execution time : 0.132 s
+Press any key to continue.
+
+//--------------------------------------------------------------------------------------------
+
+	// Performing unary operation
+
+	// overloading - operator to get opposite value of an object
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"\n x="<<x<<"\t y="<<y;
+	}
+	void operator-()
+	{
+		x=-x;
+		y=-y;
+	}
+};
+int main()
+{
+	Number n1(34,67.23);
+	n1.out();
+	-n1;	// Internally it will be called as n1.operator-()
+	n1.out();
+
+	Number n2;
+	n2.in();
+	n2.out();
+	-n2;
+	n2.out();
+	return 0;
+}
+
+//--------------------------------------------------------------
+
+	// overloading - operator to get an object multi by 10
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"\n x="<<x<<"\t y="<<y;
+	}
+	void operator-()
+	{
+		x*=10;
+		y*=10;
+	}
+};
+int main()
+{
+	Number n1(34,67.23);
+	n1.out();
+	-n1;	// Internally it will be called as n1.operator-()
+	n1.out();
+
+	return 0;
+}
+
+
+//-----------------------------------------------------------------------------------------
+
+	// Overloading unary operator as a friend
+
+#include <iostream>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"x="<<x<<"\t y="<<y;
+	}
+    friend void operator-(Number &n);
+};
+void operator-(Number &n)
+{
+	n.x=-n.x;
+	n.y=-n.y;
+}
+int main()
+{
+	Number n1(2,-4.3);
+
+	cout<<endl<<"N1: ";	n1.out();
+	-n1;	// indirectly it called as operator-(n1)
+	cout<<endl<<"N1: ";	n1.out();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Overloading the binary operators
+
+	// WAP to add two complex numbers using + operator
+
+#include <iostream>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+	Complex(Complex &t)
+	{
+		real=t.real;
+		img=t.img;
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the real and img part of complex number: ";
+		cin>>real>>img;
+	}
+	void outdata()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	Complex operator+(Complex c)
+	{
+        Complex tmp;
+        tmp.real=real+c.real;
+        tmp.img=img+c.img;
+        return tmp;
+	}
+};
+int main()
+{
+	Complex c1(4,6.7);
+
+	Complex c2;
+	c2.indata();
+
+	cout<<endl<<"C1: ";	c1.outdata();
+	cout<<endl<<"C2: ";	c2.outdata();
+
+	Complex c3;
+	c3=c1+c2;	///c3=c1.operator+(c2);
+	cout<<endl<<"C3: ";	c3.outdata();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// // WAP to add two complex numbers using + operator using friend
+
+#include <iostream>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+	Complex(Complex &t)
+	{
+		real=t.real;
+		img=t.img;
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the real and img part of complex number: ";
+		cin>>real>>img;
+	}
+	void outdata()
+	{
+		cout<<real<<"+j"<<img;
+	}
+    friend Complex operator+(Complex ca, Complex cb);
+};
+Complex operator+(Complex ca, Complex cb)
+{
+    Complex tmp;
+    tmp.real=ca.real+cb.real;
+    tmp.img=ca.img+cb.img;
+    return tmp;
+}
+int main()
+{
+	Complex c1(4,6.7);
+
+	Complex c2;
+	c2.indata();
+
+	cout<<endl<<"C1: ";	c1.outdata();
+	cout<<endl<<"C2: ";	c2.outdata();
+
+	Complex c3;
+	c3=c1+c2;	///c3=operator+(c1,c2);
+	cout<<endl<<"C3: ";	c3.outdata();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Write a program to add two time objects by overloading '+' operator.
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time operator+(Time a)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+		Time tmp;				//-1----1-------
+		tmp.ss = ss + a.ss;			// 9 : 11 : 35 
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+		
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t1+t2;		// t3=t1.addtime(t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------
+	
+	// Overloading of operator<op> function
+
+	// Now i want to add 5:5:5 in time t1 and for that i want to write as c3=t1+5 or c3=5+t1
+#include <iostream>
+using namespace std;
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time operator+(Time a)
+	{
+	    cout<<endl<<"Inside Time class - Time operator+(Time a)";
+		Time tmp;
+		tmp.ss = ss + a.ss;
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+	Time operator+(int n)
+	{
+	    cout<<endl<<"Inside Time class - Time operator+(int n)";
+		Time tmp;
+		tmp.ss = ss + n;
+		tmp.mm = mm + n + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+
+		tmp.hh = hh + n + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+	friend Time operator+(int n, Time t);
+};
+Time operator+(int n, Time t)
+{
+    cout<<endl<<"Outside Time class - Time operator+(int n, Time t)";
+    Time tmp;
+    tmp.ss = t.ss + n;
+    tmp.mm = t.mm + n + (tmp.ss/60);
+    tmp.ss = tmp.ss%60;
+
+    tmp.hh = t.hh + n + (tmp.mm/60);
+    tmp.mm = tmp.mm%60;
+
+    return tmp;
+}
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t1+t2;		// t3=t1.addtime(t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	t3=t1+5;    /// t3=t1.operator+(5)
+	cout<<endl<<"T3: "; t3.outtime();
+
+    	t3=5+t1;    /// t3=operator+(5,t1)
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+
+	// WAP to join two strings using + operator
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+};
+int main()
+{
+	String s1("Hello All ");
+
+	String s2;
+	s2.setString();
+
+	cout<<endl<<"S1: "<<s1.getString();
+	cout<<endl<<"S2: "<<s2.getString();
+
+	String s3;
+	s3=s1+s2;       /// s3=s1.operator+(s2)
+	cout<<endl<<"S3: "<<s3.getString();
+
+	return 0;
+}
+//-----------------------------------------------------------------------------------
+
+// Overloading >> and << operators
+    
+class Demo
+{
+
+  public:
+  friend void operator>>(istream& is, Demo ob);  
+  friend void operator<<(ostream& os, Demo ob);  
+};
+void operator>>(istream& is, Demo ob)
+{
+    cout<<endl<<"Data Input";
+}
+void operator<<(ostream& os, Demo ob)
+{
+    cout<<endl<<"Data Display";
+}
+int main()
+{
+    Demo d;
+    
+    cin>>d;	// operator>>(cin, d)
+    cout<<d;	// operator<<(cout, d)
+    
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class Demo
+{
+    int f1;
+    double f2;
+  public:
+      Demo()
+      {
+          f1=0;
+          f2=0.0;
+      }
+    friend void operator>>(istream& is, Demo &ob);
+    friend void operator<<(ostream& os, Demo ob);
+};
+void operator>>(istream& is, Demo &ob)
+{
+    cout<<endl<<"Input Data: ";
+    is>>ob.f1>>ob.f2;
+}
+void operator<<(ostream& os, Demo ob)
+{
+    cout<<endl<<"Data Display: ";
+    os<<ob.f1<<"   "<<ob.f2;
+}
+int main()
+{
+    Demo d;
+
+    cin>>d;	// operator>>(cin, d)
+    cout<<d;	// operator<<(cout, d)
+
+    return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Array 
+{
+  private:
+    int* data;
+    int size;
+
+  public:
+    Array(int size) : size(size) 
+    {
+        data = new int[size];
+    }
+
+    ~Array() 
+    {
+        delete[] data;
+    }
+    friend ostream& operator<<(ostream& os,  Array& arr);
+    friend istream& operator>>(istream& is, Array& arr) 
+};
+    // Overloading << operator for displaying array
+ostream& operator<<(ostream& os,  Array& arr) 
+{
+    for (int i = 0; i < arr.size; ++i) 
+    {
+        os << arr.data[i] << " ";
+    }
+    return os;
+}
+    // Overloading >> operator for inputting array
+istream& operator>>(istream& is, Array& arr) 
+{
+    for (int i = 0; i < arr.size; ++i) 
+    {
+        is >> arr.data[i];
+    }
+    return is;
+}
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+    Array arr(size);
+
+    cout << "Enter " << size << " elements for the array:\n";
+    cin >> arr; // operator>>()
+
+    cout << "Array elements are: " << arr << std::endl; // operator<<()
+
+    return 0;
+}
+
+//------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string.h>
+using namespace std;
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+	int operator/(char ch)
+	{
+		int i,cnt=0;
+
+		for(i=0;data[i]!='\0';i++)
+		{
+			if(data[i]==ch)
+			{
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+};
+int main()
+{
+	String s1;
+	s1.setString();
+	cout<<endl<<"S1: "<<s1.getString();
+
+	int t = s1/'a';		// s1.operator/(ch)
+
+	cout<<endl<<"character present "<<t<<" times.";
+
+	return 0;
+}
+
+	
+
+//-----------------------------------------------------------------------------------------------------
+
+	
+Overloadable Operators in C++:
+
+In C++, operator overloading allows you to define or modify the behavior of most built-in operators for user-defined types (like classes or structs). The following categories explain which operators can be overloaded, which must be overloaded using a friend function, and which cannot be overloaded at all.
+
+Operators that Can Be Overloaded
+Most operators in C++ can be overloaded. This allows you to define custom behavior when using these operators with your classes or structs. The overloadable operators include:
+
+Arithmetic Operators: +, -, *, /, %
+Compound Assignment Operators: +=, -=, *=, /=, %=
+Relational (Comparison) Operators: ==, !=, <, >, <=, >=
+Logical Operators: &&, ||, !
+Bitwise Operators: &, |, ^, ~, <<, >>
+Increment and Decrement Operators: ++, --
+Subscript Operator: []
+Function Call Operator: ()
+Dereference Operator: *
+Pointer-to-Member Access Operator: ->
+Type Conversion Operator: Custom type conversions (operator type())
+
+Operators that are Overloaded Using Friend Functions:
+
+Some operators must be overloaded using friend functions rather than member functions because of the way they operate on operands. These are generally operators where the left-hand operand is not of the class type or when both operands need to be treated symmetrically.
+
+Stream Insertion and Extraction Operators: <<, >>
+These operators are typically used for input/output operations and are overloaded using friend functions because they involve ostream or istream as the left operand, which cannot be made a member of your class.
+Relational Operators (sometimes): ==, <, >, etc.
+While these can be overloaded as member functions, friend functions are often used for symmetric operations where both operands need to be treated equally.
+
+Operators that Cannot Be Overloaded: 
+
+Not all operators in C++ can be overloaded. This is because certain operators have fixed meanings and semantics in the language that cannot or should not be altered for custom types.
+
+Scope Resolution Operator: ::
+Member Access Operator: .
+Pointer-to-Member Access Through Dot Operator: .*
+Sizeof Operator: sizeof
+Conditional (Ternary) Operator: ? :
+
+These operators are integral to the functioning of the C++ language itself and thus cannot be modified.
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------
+
+	// Type conversion in C++:
+
+
+	int x=10;
+	double y=x; // here int converted to double.
+
+	y=(double)x/3
+
+	Then we have to see, now the type conversion happens in classes.
+
+	- base type to class type (default conversion) - constructor
+	- class type to base type (conversion function) - member function/ operator overload
+	- class type to another class type (source to destination conversion)
+
+
+- base type to class type:
+
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+
+	.......
+}
+
+...
+
+	Complex ob(3,45.41);
+
+//--------------------------------------------------------
+
+	// - class type to base type
+
+	class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+	int operator/(char ch)
+	{
+		int i,cnt=0;
+
+		for(i=0;data[i]!='\0';i++)
+		{
+			if(data[i]==ch)
+			{
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+};
+
+
+	int t = s1/'a';		// s1.operator/(ch)
+
+	char *s=s1.getString();
+
+//-----------------------------------------------------------------
+
+	// - class type to another class type 
+
+
+#include <iostream>
+using namespace std;
+class Rect;
+class Square
+{
+    private: 
+	int side;
+    public:
+	Square()
+	{
+		side=0;
+	}
+	Square(int t)
+	{
+		side=t;
+	}
+	int area()
+	{
+		return (side*side);
+	}
+	friend class Rect;
+};
+class Rect
+{
+    private:
+	int l;
+	int b;
+    public:
+	Rect()
+	{
+		l=b=0;
+	}
+	Rect(int a1, int a2)
+	{
+		l=a1;
+		b=a2;
+	}
+	Rect(Square t)
+	{
+		l=b=t.side;
+	}
+	int area()
+	{
+		return (l*b);
+	}
+};
+int main()
+{
+	int n=5;
+	Square s1(n); // base type converted into class type
+	int a=s1.area(); // class type converted into base type
+	cout<<endl<<"Area of Square: "<<a;
+
+	Rect r1(s1); // class type to another class type
+	a=r1.area();
+	cout<<endl<<"Area of Rect: "<<a;
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+
+	// Relationship between Classes - Inheritance and Association
+
+ Suppose we dec. multiple classes
+
+i.e.
+
+	class A				class B
+	{				{
+		------------;			--------------;
+		------------;			--------------;
+		------------;			--------------;
+		------------;			--------------;
+	};				};
+
+	These are individual or independent classes. Now we have see, how the relationship
+	is formed between two or more classes.
+
+	Why to form the relationship between two or more classes:
+		- Code reusability.
+		- Cost cutting
+		- to avoid code redundancy
+	
+	There are two different ways of forming the relationship between classes
+	
+	1. Inheritance(IS-A Relationship): Tight coupling (Blood Relation)
+	2. Association(HAS-A Relationship): Loose coupling
+
+
+
+	Lets see, Inheritance first,
+
+	class A			// parent / base / super
+	{
+		....;
+	};
+	class B:public A	// child / derived / sub
+	{
+		.....;
+	};
+
+	In this case class B having blood relationship with class A, so it will inherit some
+	properties from class A. Means when we create the object of class B, we will gain the
+	memory space for both classes.
+
+	It is known as IS-A relationship, lets see the example
+
+		  class Person					class Animal
+			|						|
+		---------------------				--------------------
+		|	     	    |				|	|	   |
+	   class Student	class Employee            class Cow  class Dog  class Human
+
+
+	   Student  IS-A Person					Cow   IS-A Animal
+	   Employee IS-A Person					Dog   IS-A Animal
+								Human IS-A Animal
+
+
+	Now, lets discuss Association,
+
+	class Engine
+	{
+	};
+	class MusicPlayer
+	{
+	};
+	class Car
+	{
+		Engine e;
+		MusicPlayer mp;
+	};
+
+	Car HAS-A Engine
+	Car HAS-A MusicPlayer
+
+
+	This Association is divided in to two sub types
+
+		a.Aggregation
+		b.Composition
+
+	class Teacher
+	{
+	};
+	class Trade
+	{
+	};
+
+	class College
+	{
+		Teacher t1[50];
+		Trade t2[6];
+	};	
+
+	College 	- Container Object
+	Teacher, Trade  - Content Object
+
+	- If Content object having exsistance evenif Container Object not present,
+	  then such relationship called as Aggregation. where both classes have
+	  weak bond between each other.
+
+	- If Exsistence of Container Object and Content Object strictly dependents
+	  on each other i.e. Exsistence of any one is useless then it is known as a
+	  composition. Here both classes forms strong bond between each other.
+
+	lets see one another example
+
+		        Car
+			 |
+		--------------------
+		|		   |
+	     Engine		MusicPlayer
+
+	Car-Engine 	- forms strong bond - Composition
+	Car-MusicPlayer	- forms weak Bond   - Aggregation
+
+	Composition is also known as PART-OF Relationship.
+
+
+	______________________________________________________
+	|						      |
+	|	Association 				      |
+	|    ____________________________________________     |
+	|    |						|     |
+	|    |  Aggregation			        |     |
+	|    |    _________________________________     |     |
+	|    |    |                               |     |     |
+	|    |    | Composition			  |     |     |
+	|    |    |_______________________________|     |     |
+	|    |__________________________________________|     |
+	|_____________________________________________________|     
+
+
+ //----------------------------------------------------------------------------
+
+
+	Now, Lets start the INHERITANCE in Detail..!!
+	
+	It is act of defining the new class using the pre-defined classes.
+        It will provide the next level of reusability
+
+    consider the example, in normal case,
+
+    class employee              class student           class Teacher           class Driver
+    {                           {                       {                       {
+        char name[50];              char name[50];         char name[50];           char name[50];
+        int age;                    int age;                int age;                int age;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+    };                          };                      };                      };
+
+  some elements are there in each class, and every class having code related to IO of those
+    member, which is code repetition and can be avoided using the class inheritance as
+
+
+    /// syntax of inheritance
+
+    class <base/super/parent_class>
+    {
+        ........;
+    };
+    class <derived/sub/child_class> : <visibility_Modifier> <base_class_nm>
+    {
+        --------;
+        --------;
+    };
+
+
+ e.g.
+
+        class person
+        {
+            char name[50];
+            int age;
+            --------------;
+            --------------;
+            --------------;
+        };
+
+
+class employee:public person    class student:public person     class Teacher:public person        class Driver:public person
+{                               {                               {                                  {
+    -----------;                      -----------;                   -----------;                        -----------;
+    -----------;                      -----------;                   -----------;                        -----------;
+    -----------;                      -----------;                   -----------;                        -----------;
+};                              };                              };                                };
+
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	// ..... able to deal with person info
+		
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	// ..... able to deal with person-employee info
+
+	return 0;
+}
+	
+	This  is the example showing how the relationship is formed and how the clases are
+	refered when the objects are created.
+
+
+
+///--------------------------------------------------------------------------------------------
+
+        /// Types of Inheritance
+
+
+            single          Multi-level          hierarchical        Multiple         Hybrid
+          Inheritance       Inheritance           Inheritance       Inheritance     Inheritance
+
+             [   ] A            [     ]  A             [ ] A           A       B       [ ]A                  A
+               |                   |                    |              [ ]     [ ]      |                   [ ]
+               |                [     ]  B        --------------        |_______|      [ ] B                 |
+               V                   |              |            |             |          |         D     -------------
+             [   ]  B           [     ]  C       [ ]B         [ ]c          [ ]        [ ] C     [ ]    |           |
+                                                  |            |             C          |         |    [ ] B       [ ] C
+                                              ---------      ---------                 [ ] -------|     |___________|
+                                              |        |     |   |    |                 Z                     |
+                                             [ ]      [ ]   [ ] [ ]  [ ]                                     [ ]
+                                              D        E     F   G    H                                       D
+
+    - Single Inheritance:   One to one relationship, two layers
+    - Multi-level Inheritance: one to one relationship, more than two layers
+    - Hierarchical Inheritance: One to many relationship
+    - Multiple Inheritance: many to one relationship
+    - Hybrid Inheritance: combinations of any two or more inheritance
+
+//--------------------------------------------------------------------------------------
+
+	- Single Inheritance: (public - called all methods from main() )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.input();
+	e.set();
+
+	e.output();
+	e.show();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------
+
+	- Single Inheritance: (public - called base methods from child class methods )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+	    input();
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+	    output();
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.set();
+	e.show();
+
+	return 0;
+}
+
+
+//----------------------------------------------------------------------------------------------
+
+	- Single Inheritance: (private - called inherited methods only from the child methods  )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:private person
+{
+	float sal;
+     public:
+	void set()
+	{
+        	input();
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+        	output();
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.set();
+	e.show();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Another example
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Car:private Vehical
+{
+	char color[40];
+	int model_no;
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the color of Car: ";
+		cin>>color;
+		cout<<endl<<"Enter the model no of Car: ";
+		cin>>model_no;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Color: "<<color<<"Model_No: "<<model_no;
+	}
+};
+
+int main()
+{
+	 Car cob;
+
+	cob.in();
+	cob.out();
+
+	return 0;
+}
+
+//-------------------------------------------------------
+
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Train:public Vehical
+{
+	char name[40];
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the name of train: ";
+		cin>>name;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Name of Train: "<<name;
+	}
+};
+
+int main()
+{
+	Train tob;
+
+	tob.in();
+	tob.out();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+	//   - Multi-level Inheritance: one to one relationship, more than two layers
+
+
+	 [   ] Vehical
+	   |
+	   |
+	 [   ] Train
+	   |
+	   |
+	 [   ] Ticket
+
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Train:public Vehical
+{
+	char name[40];
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the name of train: ";
+		cin>>name;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Name of Train: "<<name;
+	}
+};
+class Ticket:private Train
+{
+	char pnm[40];
+	int inr;
+     public:
+	void setTicket()
+	{
+		in();
+		cout<<endl<<"Enter the name of person: ";
+		cin>>pnm;
+		cout<<endl<<"Enter the ticket price: ";
+		cin>>inr;
+	}
+	void showTicket()
+	{
+		out();
+		cout<<endl<<" Name of Person: "<<pnm<<"\t Paid Rs. "<<inr;
+	}
+};
+
+int main()
+{
+	Ticket t1;
+
+	t1.setTicket();
+	t1.showTicket();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------
+
+	// Using the constructors in inheritance
+
+	When you create object of any child then first it will allocate the memory for
+	base data member, then its member dunctions are decl. and then it will execute the
+	construcor of base. and perform operations in same sequence for its child.
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+
+int main()
+{
+	B ob;
+	ob.showB();
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// invoking parameterized constructors of base class
+
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+class C:public B
+{
+	int n3;
+     public:
+	C()
+	{
+		cout<<endl<<"In the default constructor of C";
+		n3=1000;
+	}
+	void setC()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n3;
+	}
+	void showC()
+	{
+		showB();
+		cout<<endl<<"C-n3 is: "<<n3;
+	}
+};
+
+int main()
+{
+	C ob1;
+	ob1.showC();
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	A(int a)
+	{
+		cout<<endl<<"In the para-1 constructor of A";
+		n1=a;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	B(int a):A(a)
+	{
+		cout<<endl<<"In the para-1 constructor of B";
+		n2=a;
+	}
+	B(int x, int y):A(x)
+	{
+		cout<<endl<<"In the para-2 constructor of B";
+		n2=y;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+class C:public B
+{
+	int n3;
+     public:
+	C()
+	{
+		cout<<endl<<"In the default constructor of C";
+		n3=1000;
+	}
+	C(int a):B(a)
+	{
+		cout<<endl<<"In the para-1 constructor of C";
+		n3=a;
+	}
+	C(int x, int y, int z):B(x,y)
+	{
+		cout<<endl<<"In the para-2 constructor of C";
+		n3=z;
+	}
+	void setC()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n3;
+	}
+	void showC()
+	{
+		showB();
+		cout<<endl<<"C-n3 is: "<<n3;
+	}
+};
+
+int main()
+{
+	C ob1;
+	ob1.showC();
+
+	C ob2(123);
+	ob2.showC();
+
+	C ob3(11,22,33);    // C ob3=C(11,22,33);
+	ob3.showC();
+	return 0;
+}
+
+
+///------------------------------------------------------------------------------------------------------------------
+
+	// Function overloading in the inheritance
+
+	 A single class may contain two or more functions having same name and with different signature called
+	 function overloading
+
+#include <iostream>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void setA(int t)
+	{
+		n1=t;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		setA();
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void setB(int t1,int t2)
+	{
+		setA(t1);
+		n2=t2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+
+int main()
+{
+	B ob1;
+	ob1.showB();
+
+	B ob2;
+	ob2.setB();
+	ob2.showB();
+
+	B ob3;
+	ob3.setB(12,34);
+	ob3.showB();
+
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Function overriding: when base class function is redefined in child class, and that function will
+	   			be invoked using object of child class then then the child class copy will be
+				executed by disabling the inherited base class copy of function. this overrule 
+				is called as function overriding.
+
+class Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Demo Class";
+	}
+};
+
+class Test:public Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Test Class";
+	}
+};
+
+int main()
+{
+	Test ob;
+	ob.msg();
+	return 0;
+}
+
+//--------------------------------------------------
+
+	In such case if you want to call the base version of function then use the class name as
+
+	<base_class_name>::<function_nm>();
+
+#include <iostream>
+using namespace std;
+class Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Demo Class";
+	}
+};
+
+class Test:public Demo
+{
+    public:
+	void msg()
+	{
+	    /// Demo::msg();   #1
+		cout<<endl<<"In Test Class";
+	}
+};
+
+int main()
+{
+	Test ob;
+	/// ob.msg(); #1
+	ob.Demo::msg();
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Person
+{
+	int uid;
+	char nm[45];
+	int age;
+     public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin>>nm;
+
+		cout<<endl<<"Enter the UID and Age of person: ";
+		cin>>uid>>age;
+	}
+	void out()
+	{
+		cout<<endl<<"Name of person: "<<nm;
+		cout<<endl<<"UID: "<<uid<<"\t Age: "<<age;
+	}
+};
+class Student:private Person
+{
+	int rno;
+	float ssc;
+	float hsc;
+     public:
+	void input()
+	{
+		in();
+		cout<<endl<<"Enter the rno, ssc percentage and hsc percentage: ";
+		cin>>rno>>ssc>>hsc;
+	}
+	void out()
+	{
+		Person::out();
+		cout<<endl<<"RNo: "<<rno<<"\t ssc percentage: "<<ssc<<"\t hsc percentage: "<<hsc;
+		//out();
+	}
+};
+int main()
+{
+	Student ob;
+
+	ob.input();
+	ob.out();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+	Using "protected": It is visibility modifier/Accessibility specifier, which is used to inherite
+			   base class member without loosing its data hiding.
+
+			   We can say that it is "Inheritable Private"
+
+					 Inheritance visibility
+
+	   Base class		private		protected	public	
+
+	private Memebers	NI		NI		NI
+
+	protected Memebers	private		protected	protected
+
+	public Memebers		private		protected	public
+
+#include <iostream>
+using namespace std;
+class A
+{
+   protected:
+	int no;
+};
+class B:public A
+{
+	int tmp;
+     public:
+	void in()
+	{
+		cout<<endl<<"Enter any two nos: ";
+		cin>>no>>tmp;
+	}
+	void out()
+	{
+		cout<<endl<<"No: "<<no<<"\t Tmp: "<<tmp;
+	}
+};
+int main()
+{
+	B ob;
+	ob.in();
+	ob.out();
+	//cout<<endl<<"no inherited from A: "<<ob.no; //error: 'int A::no' is protected within this context|
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+	// Demostrate the use of protected in multi-level inheritance
+
+	[   ] Person
+	  |
+	  |
+	[   ] Student
+ class Student:private Person
+	  |
+	  |
+	[   ] Result  
+ class Result:protected Student
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:private Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+	    in();
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		out();
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Hierarchical Inheritance
+
+			
+				Person
+				  |
+		---------------------------------
+		|		|		|
+              Student	      Employee	      Driver
+		|		|		|
+	----------------    --------------      ----------
+ 	|	|      |    |	  |	 |	|	 |	
+      Arts   Engg    Medi  HR    GM    ACC     LMV      HMV
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Multiple Inheritance:  In this type of inheritance, child class gains properties from two or more
+				  base classes. 
+
+ in()	[   ] Person		[   ] Student	input()
+ out()	  |			  |		output()
+	  |			  |
+	  |_______________________|
+	   	     |
+	  	     |
+	in()	   [   ] Result  input()
+	out()	  setdata();	 output()
+		  showdata();
+ 	class Result:protected Student,private Person
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		out();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+ in()	[   ] Person		[   ] Student	input()
+ out()	  |			  |		out()
+	  |			  |
+	  |_______________________|
+	   	     |
+	  	     |
+	in()	   [   ] Result  input()
+	out()	  setdata();	 out()
+		  showdata();
+
+ 	class Result:protected Student,private Person
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		out(); /// error: reference to 'out' is ambiguous
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+	Note that, class Result contains two copies of out(), inherited from class Person and class Student.
+	When we make a call to out() using object of class Result, the there will be confusion which leads to
+	an error, called as Ambiguous Error.
+
+	That error can be resolved using <class_nm>:: operator as shown below 
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		Student::out();
+		Person::out();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+
+or in different manner, you can use it as
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:public Student,public Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.Student::out();
+	rob.Person::out();
+	rob.showdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+	Hybrid inheritance: Combination of any two inh.
+
+	[   ] Person
+	  |
+	  |
+	[   ] Student		       Sport	
+ class Student:private Person	      [    ]
+	  |				|
+	  |				|
+	[   ]---------------------------| 
+	Result  
+ class Result:protected Student,private sport
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:private Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+	    in();
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		out();
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}	
+};
+class Result:protected Student, private Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    indata();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		outdata();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+	// Note that there may be a possibility of ambiguous error, but un Diamond Shape inheritance
+	// there is always ambigugos error. Lets see,
+
+	
+		
+		     in()	[   ] Person	out()
+				  |
+	  ________________________|________________________
+	  |						   |
+     in() |  out()				      in() |  out()
+  input() |  output()				   indata()|  outdata()
+	Student		      	 			 Sport	
+ 	[   ] 	      					[    ]					
+  class Student:public  Person			class Sport:public Person
+	  |						  |
+	  |-----------------------------------------------| 
+				  |
+		in() out()	Result		in()  out()
+	input() output()	[   ]		indata()  outdata()
+			  setdata()  showdata()
+		class Result: public Student,public Sport
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{	    
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{		
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}	
+};
+class Result:protected Student, private Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
+
+  As Two copies of in()/out() are present in result, one via class Student and another via Sport.
+  there are two places where ambiguous error will be generated.
+
+	i.e.	rob.in();
+		rob.out();
+
+	We have avoid these errors, and there are two different ways,
+
+	- using <class_nm>::
+	- using Virtual base class
+
+
+	- using <class_nm>:: 
+	    ---------------    
+		This ways allows you to select single copy when there are two or more inherited
+	        copies having same signature.
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}
+};
+class Result:public Student, public Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.Student::in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.Student::out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//------------------------------
+
+	
+	- using Virtual base class:
+	---------------------------
+		This way avoids the trversal of multiple copies in child class.
+		
+	
+		
+			     in()	[   ] Person	out()
+					  |
+		  ________________________|________________________
+		  |			  |			   |
+	     in() |  out()		  |		      in() |  out()
+	  input() |  output()		  V		   indata()|  outdata()
+		Student		      	  |			 Sport	
+	 	[   ] 	      		  |			[    ]					
+  class Student:virtual public Person	  |		class Sport:public virtual Person
+		  |			  |			  |
+		  |-----------------------O-----------------------| 
+					  |
+			in() 		Result		out()
+		input() output()	[   ]		indata()  outdata()
+				  setdata()  showdata()
+			class Result: public Student,public Sport
+
+
+    Normally in diamond shape inheritance (or in the multiple/hybrid inheritance),
+    means where a class gains the properties from two or more classes, if the child
+    class contains two or more inherited copies of functions having same name and the
+    child don't have the native function having same name, then it will generate the
+    ambiguous error. which can be corrected using two different ways.
+
+        - Using <class_name>::<fun_nm>();
+        - Using virtual base class
+
+    The virtual base class is not a direct base, it is present in the top hierarchy
+    of selected class, Normally in diamond shape inheritance, the base class functions
+    are inherited to child via two different ways, i.e. via left hand child and via right
+    hand child, in such case child class contents the multiple copies of functions having
+    same signature and which are from ultimate base class. which leads to ambiguous
+    condition, to avoid this we need to make a provision to pass the single copy
+    to the child class and it is done by using virtual keyword in the inheritance of
+    intermediate base classes. Due to that only single copy of function is passed to child
+    from the intermediate base classes which are inherited as virtual, means the result
+    is same like the child class inherits the ultimate base.therefore that ultimate base
+    class is called as virtual base class.
+
+    In above example, Student class is virtual base class.
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:virtual public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:virtual public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}
+};
+class Result:public Student, public Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
+//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
+
+	// Pointer, Virtual function and Polymorphism
+
+	Pointer: When the element count decided at runtime, you need the dynamic memory allocation,
+		 for that in C, malloc(), realloc() and calloc() functions are used 
+		 where as in C++, new and delete operators are provided.
+
+		so lets see, how the pointer variable is used to stote an address of location.
+
+	// pointer used to refer the variables of builtin type
+
+int main()
+{
+	int x=10;
+	int *p;
+	p=&x;
+	cout<<endl<<"Using x, x="<<x;
+	cout<<endl<<"Using p, x="<<*p;
+
+	float ft=3.4;
+	float *fp;
+	fp=&ft;
+	cout<<endl<<"Using ft, ft="<<ft;
+	cout<<endl<<"Using fp, ft="<<*fp;
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------
+
+	// Using pointer to refer array
+
+#include <iomanip>
+int main()
+{
+	int x[5]={11,22,33,44,55};
+	int *p;
+
+	p=x;	// or p=&x[0];
+	cout<<endl<<"Array elements are: ";
+	for(int i=0;i<5;i++)
+	{
+		cout<<setw(6)<<*(p+i);
+	}
+	return 0;
+}
+
+//------
+
+	// input display in above program
+
+int main()
+{
+	int x[5];
+	int *p;
+
+	p=x;	
+	cout<<endl<<"Enter the array elements: ";
+	for(int i=0;i<5;i++)
+	{
+		cin>>*(p+i);
+	}
+
+	cout<<endl<<"Array elements are: ";
+	for(int i=0;i<5;i++)
+	{
+		cout<<setw(6)<<*(p+i);
+	}
+	return 0;
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+	// using pointer arithmatic in above program
+
+
+int main()
+{
+	int x[5];
+	int *p;
+
+	p=x;	
+	cout<<endl<<"Enter the array elements: ";
+	for(int i=0;i<5;i++)
+	{
+		cin>>*p;
+		p++;
+	}
+	p=x;
+	cout<<endl<<"Array elements are: ";
+	for(int i=0;i<5;i++)
+	{
+		cout<<setw(6)<<*(p++);
+	}
+	return 0;
+}
+
+//-------------------------------------------------------------------------------
+
+	// Dynamic memory allocation for pointer using "new"
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+
+	int *p=new int[cnt];
+	cout<<endl<<"Enter the array elements: ";
+	for(int i=0;i<cnt;i++)
+	{
+		cin>>*(p+i);
+	}
+	
+	cout<<endl<<"Array elements are: ";
+	for(int i=0;i<cnt;i++)
+	{
+		cout<<setw(6)<<*(p+i);
+	}
+	delete p;
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------
+
+	// pointer to function
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void add(int x,int y)
+{
+	cout<<endl<<"Addition is: "<<(x+y);
+}
+void multi(int x,int y)
+{
+	cout<<endl<<"Addition is: "<<(x*y);
+}
+
+int main()
+{
+	int a,b;
+
+	cout<<endl<<"Enter the values of a and b: ";
+	cin>>a>>b;
+
+	add(a,b);
+	multi(a,b);
+
+	void (*fptr)(int,int);
+
+	fptr=&add;
+	fptr(a,b);
+
+	fptr=&multi;
+	fptr(a,b);
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------
+
+	// pointer to Object
+
+class Item
+{
+    private:
+	int ic;
+	float ip;
+    public:
+	void in()
+	{
+		cout<<endl<<"Ente the item code and price: ";
+		cin>>ic>>ip;
+	}
+	void out()
+	{
+		cout<<endl<<"Item Code: "<<ic<<"\t Price: "<<ip;
+	}
+};
+
+int main()
+{
+	Item ob;
+	ob.in();
+	ob.out();
+
+	Item *p;
+	p=&ob;
+	p->out();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------
+
+	// Pointer to class members
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+	int x;
+	float y;
+    public:
+	Demo()
+	{
+		x=1;
+		y=1.1;
+	}
+	Demo(int a1, float a2)
+	{
+		x=a1;
+		y=a2;
+	}
+	void display()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y;
+	}
+};
+int main()
+{
+	Demo ob;
+	ob.display();
+
+	void (Demo::*fptr)()=&Demo::display;		
+	(ob.*fptr)();
+
+	return 0;
+}
+//----------------
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class M
+{
+    int x;
+    int y;
+   public:
+       void set_xy(int a,int b)
+       {
+           x=a;
+           y=b;
+       }
+       friend int sum(M m);
+};
+int sum(M ob)
+{
+    int M::*px=&M::x;	
+    int M::*py=&M::y;
+
+    M *pm=&ob;
+   // int s = ob.*px + ob.*py;
+    int s = pm->*px + pm->*py;
+    return s;
+}
+int main()
+{
+    M n;
+
+    void (M::*pf)(int,int)=&M::set_xy;
+    (n.*pf)(10,20);
+    cout<<"\n Sum is: "<<sum(n);
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+	// this pointer: It is keyword, which bydefault refer to invoking object.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Person
+{
+    char name[50];
+    int age;
+   public:
+    void in()
+    {
+        cout<<endl<<"Enter the name: ";
+        cin>>name;
+        cout<<endl<<"Enter the age: ";
+        cin>>age;
+    }
+    void out()
+    {
+        cout<<endl<<"Name: "<<name<<"\t Age: "<<age;
+    }
+    Person findelder(Person t)
+	{
+		if(t.age>age)
+		{
+			return t;
+		}
+		else
+		{
+			return *this;
+		}
+	}
+};
+int main()
+{
+    Person p1,p2,p3;
+
+    p1.in();
+    p2.in();
+
+    p1.out();
+    p2.out();
+
+    p3=p1.findelder(p2);
+    p3.out();
+
+    return 0;
+}
+
+///======================================================================
+///======================================================================
+
+    /// Using the pointer in inheritance
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    public:
+	void show()
+	{
+		cout<<endl<<"In Demo Show()";
+	}	
+};
+
+class Sample:public Demo
+{
+    public:
+	void display()
+	{
+		cout<<endl<<"In Sample display()";
+	}	
+};
+
+int main()
+{
+	Demo dob;
+	Sample sob;
+
+	// pointer of child pointing to base and child object
+	
+	Sample *sp;
+
+	// sp=&dob; // error: invalid conversion from ‘Demo*’ to ‘Sample*’ [-fpermissive]
+	// sp->show();
+
+	sp=&sob;
+	sp->display();
+	
+	//-----------------------------------------------------------------
+    	// pointer of base pointing to base and child object
+    
+    	Demo *dp;
+    	dp=&dob;
+	dp->show();
+	
+	dp=&sob;
+	//dp->display(); // error: ‘class Demo’ has no member named ‘display’
+	((Sample*)dp)->display();
+	return 0;
+}
+
+	Note That,
+	
+	- Child class pointer able to refer object of child only, where as base class
+	  class pointer able to refer both child and base class object.
+
+	- When base class pointer is pointing towards object of child, and making a call to
+	  child class method, then the method will be searched in the base class. if it is not
+	  present over there, it will generate an error message. To avoid that error, we need to
+	  cast that pointer to child type.
+
+
+ Now, we will do one thing that, rather than going for type cast of base class to child type,
+ as the error suggest, lets write same function i.e. display(), it base class Demo.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    public:
+	void display()
+	{
+		cout<<endl<<"In Demo display()";
+	}	
+	void show()
+	{
+		cout<<endl<<"In Demo Show()";
+	}	
+};
+
+class Sample:public Demo
+{
+    public:
+	void display()
+	{
+		cout<<endl<<"In Sample display()";
+	}	
+};
+
+int main()
+{
+	Demo dob;
+	Sample sob;
+	
+	//-----------------------------------------------------------------
+    // pointer of base pointing to child object
+    
+    Demo *dp;
+
+	dp=&sob;
+	dp->display();
+	
+	return 0;
+}
+
+
+ Now We will the output from base class copy, means display() from base class is executed.
+ But we want to execute the child class copy of display(), then we need to use "virtual"
+ keyword as a qualifier to display() function in base class Demo.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    public:
+	virtual void display()
+	{
+		cout<<endl<<"In Demo display()";
+	}	
+	void show()
+	{
+		cout<<endl<<"In Demo Show()";
+	}	
+};
+
+class Sample:public Demo
+{
+    public:
+	void display()
+	{
+		cout<<endl<<"In Sample display()";
+	}	
+};
+
+int main()
+{
+	Demo dob;
+	Sample sob;
+	
+	//-----------------------------------------------------------------
+    // pointer of base pointing to child object
+    
+    Demo *dp;
+
+	dp=&sob;
+	dp->display();
+	
+	return 0;
+}
+
+
+ Now we will get the output from child class copy, so virtual function can be defined as
+ it is function from base class havinfg empty body and qualified with virtual keyword.
+
+//=====================================================================================================
+//=====================================================================================================
+	
+	Polymorphism: One name many forms
+
+			Polymorphism
+			     |
+		------------------------------	
+		|			     |
+   	  static/compile-time/		Dynamic/Run-time
+	  Early binding			Late baiding
+		|			     |
+	   Overloading			 Overriding
+		|
+          - function overloading	
+          - operatoe overloading	
+
+	lets see, Run-time Polymorphism
+
+			Shape
+			[   ] area()
+			  |
+	  ________________|_________________
+	  |		  |		  |
+	  |     	  |     	  |
+	[   ]		[   ]		[   ]
+	Rect   	       Circle  	       Triangle 
+	area()		area()		area()
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Shape
+{
+    public:	
+    	virtual void area()		// Virtual function
+	{
+	}
+};
+class Rect:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Rect area()";
+	}
+};
+class Circle:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Circle area()";
+	}
+};
+class Triangle:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Triangle area()";
+	}
+};
+
+int main()
+{
+	Shape *s;
+
+	Rect rob;
+	s=&rob;;
+	s->area();
+
+	Circle cob;
+	s=&cob;;
+	s->area();
+
+	Triangle tob;
+	s=&tob;;
+	s->area();
+
+	return 0;
+}
+
+//--------------------------------------------
+
+ Now, we and to ad one more child
+
+			Shape
+			[   ] area()
+			  |
+	  ________________|________________- - - - - - - - 
+	  |		  |		  |		 |
+	  |     	  |     	  |  		 |
+	[   ]		[   ]		[   ]	       [   ]	
+	Rect   	       Circle  	       Triangle      Parabola
+	area()		area()		area()
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Shape
+{
+    public:	
+    virtual void area()=0; // pure virtual function
+};
+class Rect:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Rect area()";
+	}
+};
+class Circle:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Circle area()";
+	}
+};
+class Triangle:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In Triangle area()";
+	}
+};
+class Parabola:public Shape
+{
+    public:
+	void area()
+	{
+		cout<<endl<<"In parabola area()";
+	}
+};
+
+int main()
+{
+	Shape *s;
+
+	Rect rob;
+	s=&rob;;
+	s->area();
+
+	Circle cob;
+	s=&cob;;
+	s->area();
+
+	Triangle tob;
+	s=&tob;;
+	s->area();
+
+	Parabola pob;
+	s=&pob;;
+	s->area();
+
+	return 0;
+}
+
+
+Abstract Class: 
+In C++, an abstract class is a class that cannot be instantiated and is designed to be a base class for other classes. It is typically used to define an interface for derived classes. An abstract class is defined by declaring at least one pure virtual function, which is a virtual function declared by assigning 0 in its declaration.
+
+//-----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+
+	//  Input-Output in C++: 
+
+		There are different ways of taking data in the computer memory, and differnt ways of
+	reprenting data to outside world. how to deal with these different ways of input-output, that
+	we hve to study in this topic, Input-Output in C++ or IO in C++
+
+
+		 				  CPU  
+					_________________________
+					|			|     sends the command signal 
+				|----->	|	  CU		|---> to every connected peripherial
+				|	|_______________________|     
+		   Input	|	|			|	 	 Output
+		    [ ]		|   |-->|	  ALU		|---|     |--->   [ ]
+		     |		|   |	|_______________________|   |	  |
+		     |		|   |---|			|<--|	  |
+ In C   - scanf()    |		|-------|	  IM		|	  |  In C   - printf()
+ In C++ - cin	     |---------------->	|_______________________|---------|  In C++ - cout
+					       ^          |	
+	       fp=fopen("<path>",<Read_Mode>)  |          | fp=fopen("<path>",<Write_Mode>)	
+					 ______|__________V______
+					|			|
+					|	  EM		|
+					|_______________________|
+
+
+	Stream: It is path or channel thw. which data flows in terms of bits and bytes.
+
+								File Write
+	  Console output Stream - cout(default)   Output file stream - say fout(userdefined)
+
+  		   _____[][][][][][][][][]_________[][][][][][][][][]_____
+                   |			     |				 |
+ 		   |			     ^				 V
+		   V	    Console	     |		File		 |
+		[    ]        IO           [   ]	 IO	       [   ]
+	       IO Device             	  Program   		    File on Disk
+		   |			     |			 	 |
+		   |			     ^				 V
+		   V			     |				 |
+		   |___[][][][][][][][][]____|____[][][][][][][][][]_____|
+
+	  Console Input Stream - cin(default)	    Input file stream - say fin(userdefined)
+								File Read
+
+
+	class hierarchy of IO class in the library
+
+
+					     ios
+		--------------<---------------|
+		|		              |
+		|	----------------------|-----------------------
+		|	|		  streambuf		    |
+		|	V			|________	    V
+		|     istream				|	ostream
+		|	|  |____________________________|________|   |
+		|	|		      | 	|____________|______> filebuf
+		|	|		      V			     |
+		|	|		  iostream		     |       Console IO
+  ______________|_______|____________________|_______________________|________________
+		|	|		     |			     |
+		V	V		     V  		     V       File IO 
+		|     ifstream		    fstream	          ofstream
+		|	^		      ^			     ^	
+		|       |_____________________|______________________| 
+		|                             |    
+		|			    fstreambase
+		|______________>______________|
+
+
+	We have provided with the built-in io objects used to deal with standard input and standard output
+	and these are cin and cout respectively.
+
+		cin - It is predefined object istream class.
+		cout - It is predefined object of ostream class
+
+	In case of file io, no any predefined stream object are provided, we need to decl. it in the program as
+
+		ifstream fin  - to create the input stream
+		ofstream fout - to create the output stream		
+	
+
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+
+	Now lets start with - Console IO:
+	
+
+
+	- Console Input Stream : This stream is created using the scanf() function in C, which is buitin
+				 function from stdio.h.
+					 Here in C++, These streams are created using the istream class and
+				 ostream class. The cin is predefined object of istream class. which creates
+				 the standard(console) input stream. and therefore cin.getline() is called using
+				 such way, i.e. using the . operator
+
+				In case of cin>>,  in this case cin is object and  >> is actually bitwise rh+ shift
+				operator, which is overloaded here in istream class to take the input and therefore
+				it is known as get-in or extraction operator.
+
+	- Console Output Stream : Here the cout is predefined object of ostream class, and << is actrually bitwise
+				leftshift operator, which is overloaded here in ostream class to put the data on
+				screen and therefore it is known as put-to or insertion operator.
+
+
+
+	Using get() and put() functions: 
+  	
+			here the get() and put() are the two different methods from istream and ostream classes resp.
+	the get() having two different form used to take the single character. whereas the put() is used to display
+	the single character to screen.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    char ch;
+
+    cin.get(ch);
+    //ch=cin.get(); // or
+
+    cout.put(ch);
+    cout<<"\n"<<ch;
+
+    return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------
+
+	// Using the getline() and write() functions: The getline() is from istream and write() is 
+			from ostream class, used to input/display the collection of characters (String) .
+
+
+
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    char str[50];
+
+    cout<<"\n Enter the string: ";
+    cin.getline(str,50);
+    cout.write(str,strlen(str));
+
+    return 0;
+}
+
+//------------------
+//-----------------------------------------------------------------------------------
+
+/// Formatted Console IO Operations
+
+Formatted IO using ios class memebers:
+---------------------------------------
+
+The ios class contains several member functions that are used to perform formmated IO operations.
+
+The ios class also contains few format flags used to format the output. It has format flags like showpos, showbase, oct, hex, etc. The format flags are used by the function setf( ).
+
+The following table provides the details of the functions of ios class used to perform formatted IO in C++.
+
+Function	Description
+
+width(int)			Used to set the width in number of character spaces for the immediate output data.
+fill(char)			Used to fill the blank spaces in output with given character.
+precision(int)			Used to set the number of the decimal point to a float value.
+setf(format flags)		Used to set various flags for formatting output like showbase, showpos, oct, hex, etc.
+unsetf(format flags)		Used to clear the format flag setting.
+
+All the above functions are called using the built-in object cout.
+
+The C++ programming language provides the several built-in functions to display the output in formatted form. These built-in functions are available in the header file iomanip.h and ios class of header file iostream.h.
+
+
+In C++, there are different ways to perform the formatted IO operations.
+
+	- Using the member functions of ios class.
+	- Using the special functions called manipulators defined in iomanip.h.
+	- Using userdefined output functions
+
+
+All the above functions are called using the built-in object cout.
+
+Lets look at the following code to illustrate the formatted IO operations using member functions of ios class.
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Example for formatted IO" << endl;
+
+    cout << "Default: " << endl;
+    cout << 123 << endl;
+
+    cout << "width(5): " << endl;
+    cout.width(5);
+    cout << 123 << endl;
+
+    cout << "width(5) and fill('*'): " << endl;
+    cout.width(5);
+    cout.fill('*');
+    cout << 123 << endl;
+
+    cout.precision(6);
+    cout << "precision(6) ---> " << 123.4567890 << endl;
+    cout << "precision(6) ---> " << 19.876543210 << endl;
+
+    cout << "setf(showpos): " << endl;
+    cout.setf(ios::showpos);
+    cout << 123 << endl;
+
+    cout << "unsetf(showpos): " << endl;
+    cout.unsetf(ios::showpos);
+    cout << 123 << endl;
+
+    return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+Formatted IO using manipulators
+-------------------------------------
+
+The iomanip.h header file contains several special functions that are used to perform formmated IO operations.
+
+The following table provides the details of the special manipulator functions used to perform formatted IO in C++.
+
+Function				Description
+setw(int)			Used to set the width in number of characters for the immediate output data.
+setfill(char)			Used to fill the blank spaces in output with given character.
+setprecision(int)		Used to set the number of digits of precision.
+setbase(int)			Used to set the number base.
+setiosflags(format flags)	Used to set the format flag.
+resetiosflags(format flags)	Used to clear the format flag.
+
+The iomanip.h also contains the following format flags using in formatted IO in C++.
+
+Flag				Description
+endl			Used to move the cursor position to a newline.
+ends			Used to print a blank space (null character).
+dec			Used to set the decimal flag.
+oct			Used to set the octal flag.
+hex			Used to set the hexadecimal flag.
+left			Used to set the left alignment flag.
+right			Used to set the right alignment flag.
+showbase		Used to set the showbase flag.
+noshowbase		Used to set the noshowbase flag.
+showpos			Used to set the showpos flag.
+noshowpos		Used to set the noshowpos flag.
+showpoit		Used to set the showpoit flag.
+noshowpoint		Used to set the noshowpoint flag.
+
+Lets look at the following code to illustrate the formatted IO operations using manipulators.
+
+#include <iostream>
+#include <fstream>
+#include<iomanip>
+
+using namespace std;
+
+void line() {
+    cout << "-------------------------------" << endl;
+}
+
+int main()
+{
+    cout << "Example for formatted IO" << endl;
+    line();
+    cout << "setw(10): " << endl;
+    cout << setw(10) << 99 << endl;
+    line();
+    cout << "setw(10) and setfill('*'): " << endl;
+    cout << setw(10) << setfill('*') << 99 << endl;
+    line();
+    cout << "setprecision(5): " << endl;
+    cout << setprecision(5) << 123.4567890 << endl;
+    line();
+    cout << "showpos: " << endl;
+    cout << showpos << 999 << endl;
+    line();
+    cout << "hex: " << endl;
+    cout << hex << 100 << endl;
+    line();
+    cout << "hex and showbase: " << endl;
+    cout << showbase << hex << 100 << endl;
+    line();
+
+    return 0;
+}
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+
+// user defined manipulators 
+//---------------------------
+
+C++ provides a set of predefined manipulators. The header file iomanip.h header file contains these manipulators. Moreover, you can design your own manipulators in C++ to suit specific purpose. The user defined manipulators are defined as follows:
+
+ostream & manipulator(ostream & ostr)
+{
+	set of statements;
+	return ostr;
+}
+
+Consider the following example which creates a user defined manipulator named curr for displaying Rs. and sets the precision to 2.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+ostream& curr(ostream& ostr)
+{
+	cout<< setprecision(2);
+	cout<<"Rs. ";
+	return ostr;
+}
+
+int main()
+{
+	float amt = 4.5476;
+	cout<<curr<<amt;
+	return 0;
+}
+
+Copyrights  Archer InfoTech Pune 9850678451
+
+//========================================================================================================
+
+//========================================================================================================
+
+	// File IO
+
+	In C++, file I/O (Input/Output) involves reading from and writing to files. A "file" in this context 
+	typically refers to a named collection of data stored on a storage medium, such as a hard drive or SSD.
+
+	In C++, you perform file I/O operations using, the <fstream> library, which provides classes like 
+	- ifstream (for input from a file)
+	- ofstream (for output to a file),
+	- fstream (for both input and output). 
+
+	These classes allow you to interact with files in a way that's similar to how you interact with streams of data.
+
+	To perform file I/O in C++, you typically follow these steps:
+
+	- Include the necessary header file: #include <fstream>.
+
+	- Open the file: Use an instance of ifstream, ofstream, or fstream to open the file you want to read from 
+	  or write to. You specify the filename and optionally the file mode (e.g., ios::in for input, ios::out for 
+	  output, ios::binary for binary mode, etc.).
+
+	- Perform read or write operations: Once the file is open, you can use standard input/output operations 
+	  (<< and >> operators) or member functions (getline(), write(), read(), etc.) to perform read or write 
+	 operations on the file.
+
+	- Close the file: After you're done with the file, it's essential to close it using the close() method of 
+	  the file stream object. This ensures that any buffers are flushed, and system resources associated with 
+	  the file are released.
+	
+
+//-------------------------------------------------------------------------------
+
+	How to Open the file:
+	--------------------
+
+	Now the first step to open the particular file for read or write operation. We can open file by 
+		1. passing file name in constructor at the time of object creation 
+		2. using the open method 
+
+	For e.g.  
+
+	* Open File by using constructor 
+		- ifstream (const char* filename, ios_base::openmode mode = ios_base::in); 
+		- ifstream fin(filename, openmode) by default open mode = ios::in 
+		- ifstream fin(“filename”);
+
+	* Open File by using open method 
+		ifstream fin;
+		fin.open(filename, openmode) 
+		fin.open(“filename”); 
+
+//------------------------------------------------------------
+//---------------------------------------------------------------
+	/// Using the get() and put(): 
+
+// Program to read the single character from the file
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+	ifstream fin("E:\\sample.txt");
+ 	cout<<(char)fin.get();
+ 	return 0;
+}
+
+	Note that the file pointer by default refers at start, and after 
+	the read operation in will increases by one automatically. 
+
+//---------------------------------------------------------------
+
+// Program to read the single character from the file
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+    char ch;
+     ifstream fin("Y:\\sample.txt");
+    while((ch=(char)fin.get())!=EOF)	// or while((ch=(char)fin.get())!=-1)
+    {
+       cout<<ch;
+    }
+    return 0;
+}
+//---------------------------------------------
+	using fin.eof()
+
+// Program to read the single character from the file
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+    ifstream fin("Y:\\sample.txt");
+    int t;
+    while(!fin.eof())
+    {
+        cout<<(char)fin.get();
+    }
+    return 0;
+}
+// Note carefully that eof() returns 1 when reached at end otherwise 0.
+
+//------------------------------------------------------------------------------------------
+// Program to read/ write the single character from the file
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+    ofstream fout("y:\\data.txt");
+    ifstream fin("y:\\sample.txt");
+    int t;
+    while(!fin.eof())
+    {
+        t=fin.get();
+        fout.put(t);
+    }
+    fin.close();
+    fout.close();
+    return 0;
+}
+
+//-----------------------------------------
+
+// File opening using the open() function
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+    ofstream fout;
+    ifstream fin;
+    int t;
+    fout.open("data.txt");
+    fin.open("sample.txt");
+    while(!fin.eof())
+    {
+        t=fin.get();
+        fout.put(t);
+    }
+    fin.close();
+    fout.close();
+    return 0;
+}
+
+//------------------------------------------------------------------------------
+
+// Using the fstream
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+int main()
+{
+    fstream fio;
+    ifstream fin("y:\\data.txt");
+    char ch;
+    fio.open("y:\\sample.txt",ios::in | ios::out);
+    // open the data file and after reading the data write that data
+    // into another file
+    while(fin)
+    {
+        fin.get(ch);
+        fio.put(ch);
+    }
+    fin.close();
+    fio.seekg(0);
+    while(fio)
+    {
+        cout<<(char)fio.get();
+    }
+    return 0;
+}
+
+//------------------------------------------------------------------------------------
+
+// Writing the object of class to file
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+class item
+{
+    int icode;
+    float ipr;
+   public:
+    void indata()
+    {
+        cout<<"\n Enter the item code: ";
+        cin>>icode;
+        cout<<"\n Enter the item price: ";
+        cin>>ipr;
+    }
+    void outdata()
+    {
+        cout<<"\n Item Code: "<<icode<<"\t Price: "<<ipr;
+    }
+};
+int main()
+{
+    item ob;
+    ob.indata();
+
+    fstream fio;
+    fio.open("y:\\data.txt",ios::in | ios::out);
+    fio.write((char*) &ob, sizeof(ob));
+
+    fio.seekg(0);
+
+    item tmp;
+    fio.read((char*)&tmp, sizeof(tmp));
+    tmp.outdata();
+
+    return 0;
+}
