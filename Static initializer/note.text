@@ -1,0 +1,29 @@
+
+	In Java, a static initializer (also known as a static block) is a special code block that is used to initialize 
+	static variables when the class is loaded into memory. It is executed only once when the class is first loaded, 
+	and not every time an object of the class is created. This is different from instance initialization, which 
+	occurs whenever a new instance of the class is created.
+
+	- Declaration: A static block is declared using the static keyword, followed by a block of code enclosed in 
+	  curly braces {}. It is placed inside the class, but outside any methods or constructors.
+
+	  i.e.
+		class Example
+		{
+			int x;
+			static double y;
+			static
+			{
+				y=100.0;
+			}
+			....
+		}
+
+	- It is used, To initialize static variables or perform any setup that is needed at the class level (before 
+	  any objects are created).
+	- Useful for complex initialization of static variables, especially if the initialization requires multiple 
+	  lines of code or logic that cannot be done in a simple assignment.
+	- If there are multiple static blocks in a class, they will execute in the order in which they appear 
+	  in the code.
+	- A static block can also handle exceptions. If an exception is thrown within a static block, it can be 
+	  caught and handled, preventing the class from failing to load.

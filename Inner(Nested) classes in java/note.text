@@ -1,0 +1,51 @@
+// Inner(Nested) classes in Java: 
+
+	In Java, an inner class is a class defined within another class. Inner classes are primarily used to logically 
+	group classes that will only be used in one place, increasing encapsulation and improving code readability.
+
+	Types of Inner Classes in Java:
+	- Nested Inner Class (Non-static Inner Class)
+	- Static Nested Class
+	- Method-Local Inner Class
+	- Anonymous Inner Class
+
+	1 }// Nested Inner Class (Non-static Inner Class):  A non-static inner class is associated with an instance 
+	   of the outer class and can access its members (including private member
+
+
+
+       // Note
+	- If you want to create the object of inner class, first you need to create the object of outer class.
+	  and using instance(object) of outer class, we need to use inner class.
+	- Inner class having access to outer class member(methods and variables) directly, but 
+	  vice-versa not possible.
+
+
+// - 2} Static Nested Class: A static nested class is associated with the outer class itself rather than an 
+	     instance. It cannot directly access instance variables or methods of the outer class.
+
+// Note
+	- If you want to create the object of inner class, first you need to create the object of outer class.
+	  and using instance(object) of outer class, we need to use inner class.
+	- Inner class having access to outer class member(methods and variables) directly, but 
+	  vice-versa not possible.
+
+
+
+	  3}// - Method-Local Inner Class: A method-local inner class is defined within a method and is only 
+	     accessible within that method.
+
+		 
+	// Note
+	- If you want to create the object of static inner class, you don't need object of outer class.
+	  only outer class name is sufficient to access inner static-nested class.
+	- Static inner class having access to only static members of outer class.
+	- Non-static methods and instance variables of outer class can not be accessed directly.
+
+
+
+4}// - Method-Local Inner Class: A method-local inner class is defined within a method and is only 
+	     accessible within that method.
+
+5}// anonymous inner class: An anonymous inner class is a class without a name, typically 
+				  used to override methods of an interface or superclass.

@@ -1,0 +1,10 @@
+What is a POJO Class in java?
+	 - A POJO (Plain Old Java Object) is a simple object in Java that doesn't adhere to any special restriction 
+	  other than those forced by the Java Language Specification and does not require any classpath. 
+	  Here are the key points that define a POJO class:
+
+	- No Implements: It does not implement any special interfaces such as Serializable, Externalizable, etc.
+	- No Extends: It does not extend prespecified classes which may force it to behave in a certain way.
+	- Simple Fields: Fields should be private to achieve encapsulation. Fields can be accessed directly 
+	  via getters and setters.
+	- Zero-arg Constructor: Often includes a no-argument constructor.

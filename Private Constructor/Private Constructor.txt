@@ -1,0 +1,16 @@
+// Private Constructor
+
+	A private constructor in Java is a constructor that is declared with the private access modifier. Unlike public 
+	or protected constructors, it restricts object creation from outside the class. This means instances of the 	
+	class cannot be created directly from outside the class.
+
+	public class Example {
+    		private Example() {
+        		// Initialization code
+    		}
+	}
+
+
+	Why Use a Private Constructor?
+	Private constructors are used to achieve specific design patterns and behaviors in Java. 
+	Some common use cases include:

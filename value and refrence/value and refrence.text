@@ -1,0 +1,80 @@
+// Lets discuss the class by value and class by refernce.
+
+	- We know that, In C++, variable are passed by value bydefault. If you want to pass them
+	  byreference then pointer is used.
+
+class SwapDemo
+{
+	public static void swap(int a, int b)
+	{
+		int tmp;
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+		System.out.println("\n Before Interchange x="+x+"\t y="+y);
+		swap(x,y);
+		System.out.println("\n After Interchange x="+x+"\t y="+y);
+	}
+}
+
+ ----- Output -------
+Y:\jsmall>javac SwapDemo.java
+Y:\jsmall>java SwapDemo
+ Before Interchange x=10   y=20
+ After Interchange x=10  y=20
+
+	Means java variables are passed by value bydefault. Then how to pass the byreference coz, in c++,
+	pointer is used, here in java pointer is absent.
+
+	solution is that, pass the values in form of object, coz object bydefault passesd by reference.
+	for that,
+	 - create custom class to reperent the int value in its equivalent object from. OR
+	 - Use wrapper classes. (Can not possible to interchage data coz wrapper classes are immutable)
+	 - Use the Array 
+
+
+	// Lets first confirm that, Object is bydefault passed by reference.
+
+class Int
+{
+	private int data;
+	public void setData(int data)
+	{
+		this.data=data;
+	}
+	public int getData()
+	{
+		return data;
+	}
+}
+class ObjByRefConfirm
+{
+	public static void sample(Int t)
+	{
+		t.setData(t.getData()+100);
+	}
+	public static void main(String[]args)
+	{
+		int x=10;
+		Int obx = new Int();
+		obx.setData(x);
+
+		System.out.println("Before - x="+obx.getData());
+		sample(obx);
+		System.out.println("After - x="+obx.getData());		
+	}
+}
+
+ --- Output ----
+
+Y:\jsmall>javac ObjByRefConfirm.java
+
+Y:\jsmall>java ObjByRefConfirm
+Before - x=10
+After - x=110
+
+	It is confirmation, that Object passed by reference.
