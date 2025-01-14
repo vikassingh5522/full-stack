@@ -1,0 +1,34 @@
+// Constructors in Java Classes: 
+
+	 A constructor in Java is a special method used to initialize objects when they are created. It has the same 
+	 name as the class and does not have a return type (not even void). Constructors are automatically called when 
+	 an object of the class is instantiated.You can define multiple constructors with different parameters 
+	 (constructor overloading).
+
+	Types of Constructors:
+	  - Default Constructor (No-Argument Constructor):
+	  - Parameterized Constructor:
+	  - Copy Constructor (Not built-in like in C++):
+
+
+	// Default Constructor (No-Argument Constructor): It is constructor without arguments. Can init.
+	   instance variables using input or using literals. In absence of constructor in class, the default 
+	   constructor with the empty body will be provided by the compiler itself. 
+
+
+    //- Parameterized Constructor: It is the constructors with arguments.
+
+	 * If we define any constructor in class then it is our responsibility to define default constructor,
+	   in such case compiler will not provide the default constructor with empty body. In absence of default 
+	   constructor the error will be generated only when compiler will need it for allocation.
+	 * A call may contain multiple constructors, but only one executed at a time.
+
+
+
+
+	// Copy Constructor: A constructor used to create a new object by copying an existing object's data.
+
+
+	//  Constructor Overloading: Defining multiple constructors in a same class. Only take case that
+	there must not be two or more construcctors with same signature.
+

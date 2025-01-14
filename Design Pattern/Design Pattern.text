@@ -1,0 +1,59 @@
+// Private Constructor
+
+	A private constructor in Java is a constructor that is declared with the private access modifier. Unlike public 
+	or protected constructors, it restricts object creation from outside the class. This means instances of the 	
+	class cannot be created directly from outside the class.
+
+	public class Example {
+    		private Example() {
+        		// Initialization code
+    		}
+	}
+
+
+	Why Use a Private Constructor?
+	Private constructors are used to achieve specific design patterns and behaviors in Java. 
+	Some common use cases include:
+
+	1. Singleton Design Pattern: A singleton ensures that only one instance of a class is created during the 
+	   application's lifecycle. The class provides a global access point to this instance.
+
+	2. Factory Method Pattern: A factory method uses a private constructor to control the 
+	   creation of objects and delegates object creation to static methods.
+
+	   
+   3. Preventing Instantiation in Utility Classes:
+
+	Utility classes contain static methods and constants. Since they don’t 
+	need instances, a private constructor prevents instantiation.
+
+
+
+
+
+Default arguments in methods: 👍
+        it is not allowed to write default arguments in java methods. Unlike some 
+	   other programming languages (such as C++ or Python), Java does not support default arguments for methods. 
+	   This means that when you define a method in Java, you must specify all the parameters explicitly, and 
+	   the caller must provide values for all the parameters.
+
+	Why Java Does Not Support Default Arguments?
+
+	- Java aims to keep the language simple and readable. Default arguments can sometimes make the code harder 
+	  to understand, especially when methods are overloaded or when the default values are not obvious.
+	- Java emphasizes consistency in its syntax and semantics. Introducing default arguments could lead to 
+	  inconsistencies and potential ambiguities in method overloading and method resolution.
+	- Java has a strong emphasis on backward compatibility. Introducing default arguments could break existing 
+	  code or introduce subtle bugs in legacy systems.
+
+	Alternatives to Default Arguments: 
+
+	While Java does not support default arguments, there are several alternatives to achieve similar functionality:
+
+	1. Method Overloading: You can define multiple versions of a method with different parameter lists. This allows 
+	you to provide default values by calling the appropriate overloaded method.
+
+
+	
+	2. Builder Pattern: The Builder pattern is a design pattern that allows you to construct complex objects 
+	   step by step. It provides a flexible way to set default values and build objects with optional parameters.
