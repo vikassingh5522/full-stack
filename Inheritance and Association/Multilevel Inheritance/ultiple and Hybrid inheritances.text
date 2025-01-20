@@ -1,0 +1,117 @@
+	// Hierarchical Inheritnce 👍👍
+
+			[ ] Person
+	 		 |
+	 ________________|_______________________________
+	 |			|			|
+	[ ] student           [   ] Employee           [   ] Driver
+	 |			|                        |
+	 |			|                  ---------------   
+	[ ] sport          -------------------     |             |
+	 |                 |         |        |   [ ] Utility   [ ] Heavy 
+	 |               [  ]       [  ]     [ ]
+	[ ] Result      Worker    Director    CEO
+
+class Person {}
+
+  class Student extends Person {}
+     class Sport extends Student{}
+        class Result extends Sport{}
+
+  class Employee extends Person {}
+     class Worker extends Employee{}
+     class Director extends Employee{}
+     class CEO extends Employee{}
+
+  class Driver extends Person {}
+     class Utility extends Driver{}
+     class Heavy extends Driver{}
+
+class MainHierarchicalExample
+{
+	public static void main(String []args)
+	{
+		Ceo ob1=new Ceo();
+		boolean b= ob1 instanceof Ceo;
+		System.out.println(b);
+
+		b=ob1 instanceof Employee;
+		System.out.println(b);
+
+		b=ob1 instanceof Person;
+		System.out.println(b);
+
+		System.out.println("\n ---------------------- ");
+
+		Result ob2=new Result();
+		b=ob2 instanceof Result;
+		System.out.println(b);
+
+		b=ob2 instanceof Person;
+		System.out.println(b);
+	}
+}
+
+//-----------------------------------------------------------------------
+
+	// Multiple and Hybrid inheritances - Absent in Java🫡✅💡💡💡
+
+	// Why multiple and Hybrid inheritances not present in Java?
+
+	We have two more inheritances multiple and Hybrid, these inheritances are present in C++
+	but as both create the Ambiguous condition, so both are eliminated from Java.
+
+	NOTE TAHT TO GAIN GOOD PART OF THESE INHERITANCES JAVA INTRODUCED THE INTERFACE.
+
+	Lets see, how the ambiguous condition is cerated by the both
+	
+	// Multiple Inheritance:
+
+
+		     student		     sport
+	     get()    [  ]	   	     [  ]  in()
+	     put()     |	               |   put()
+                       |_______________________|
+                               |
+                               |
+                              [ ]
+                             Result
+
+                        get()       in()
+                        put()       put()	
+			     input()
+			     output()
+
+	when we create the object of Result class and call put() method.
+	
+	Result rob;
+	...
+	rob.put(); // creates ambiguous condition coz there are two copies of put(). 
+		   // one from student and another from sport
+
+
+	lets consider another class relationship
+
+	// Hybrid Inheritance:
+
+                    in()  Student
+		    out()  [ ]               ---|
+                            |                   |
+                   _________|______________     | -----------> // Hierarchical Inheritnce
+          in()    |	                  |out()|
+	  out()   |           setdata()   |in() |
+	 Set()   Exam        showdata() sport   |
+	 Show()  [  ]	     	         [  ] ---
+	           |	                   |    |
+                   |_______________________|    | ----------> // Multiple Inheritance
+                            |                   |
+ 			  [   ]             ----
+	    in()   out()  Result  in()       out()
+	   Set()   Show()         setdata()  showdata()
+
+
+	Ambiguous condition is created when we make a call to in() and out() using object of Result class.
+
+
+	So to eliminate these Ambiguous condition, Java dont have multiple and Hybrid inheritances.
+	Note another fact that java does not needs a virtual keyword to create virtual base class.

@@ -1,0 +1,53 @@
+Java **does not support multiple inheritance** with classes to avoid conflicts like the "diamond problem." However, it allows **multiple inheritance through interfaces**, where a class can implement multiple interfaces. Similarly, **hybrid inheritance** (combining different types of inheritance) is possible by using a mix of class inheritance and interface implementation.
+
+Multiple and hybrid inheritance are not directly supported in Java (via classes) primarily to avoid complexities and ensure simplicity in the language. Here's why:
+
+1.} Avoiding the Diamond Problem:
+In multiple inheritance, if two parent classes have methods with the same name, the child class can face ambiguity about which method to inherit.
+For example:
+
+
+class A {
+    void show() {
+        System.out.println("Method from Class A");
+    }
+}
+
+class B {
+    void show() {
+        System.out.println("Method from Class B");
+    }
+}
+
+// Multiple inheritance: (Not allowed in Java)
+class C extends A, B { // This would cause ambiguity
+    // Which `show()` method should C inherit? From A or B?
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.show(); // Ambiguous: Should it call A's or B's show()?
+    }
+}
+
+
+2} Ambiguity in programming occurs when the compiler or runtime cannot decide which option to choose due to conflicting or unclear instructions. This often happens in multiple inheritance scenarios where a class inherits from two or more classes/interfaces with the same method names or properties.
+
+3}
+Hybrid inheritance is not directly supported in Java to avoid complexity and ambiguity that can arise when combining multiple inheritance and other types of inheritance. Let's explore why Java restricts hybrid inheritance:
+
+What is Hybrid Inheritance?
+Hybrid inheritance is a combination of two or more types of inheritance, such as single, multiple, or multilevel inheritance.
+
+For example:
+
+A class might inherit from one class (single inheritance) while also implementing multiple interfaces (multiple inheritance).
+
+    Class A
+      |
+    Class B
+     /  \
+ Class C  Class D
+      \  /
+      Class E
