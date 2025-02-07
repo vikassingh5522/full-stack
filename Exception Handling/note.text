@@ -1,0 +1,64 @@
+ Keyword			Purpose
+     --------------------------------------------------------------------------------------------
+	try		Encapsulates code that might throw an exception.
+	throw		Explicitly generates an exception.
+	catch		Defines a block to catch and handle the thrown exception.
+	finally		Executes code regardless of whether an exception was thrown or caught.
+	throws		Declares exceptions a method might throw.
+
+-------------------------------------------------
+
+//  Types of Exceptions in Java and Their Reasons
+
+	In Java, exceptions are broadly classified into checked exceptions, unchecked exceptions, and errors. 
+	Here's a list of common exceptions in each category and their causes:
+
+	- IOException: Issues with input/output operations (e.g., file not found, unable to read/write).
+	- FileNotFoundException: Trying to access a file that does not exist.
+	- SQLException: Issues while interacting with a database (e.g., connection failure, invalid SQL query).
+	- ClassNotFoundException: Trying to load a class that is not found in the classpath.
+	- InterruptedException: A thread is interrupted while it is in a sleeping or waiting state.
+	- MalformedURLException: An invalid URL is provided.
+	- CloneNotSupportedException: Attempting to clone an object that does not implement the Cloneable interface.
+
+	- NullPointerException: Attempting to access an object or call a method on a null reference.
+	- ArrayIndexOutOfBoundsException: Accessing an array element with an index outside its valid range.
+	- ArithmeticException: Performing an illegal arithmetic operation (e.g., division by zero).
+	- ClassCastException: Invalid type casting of objects.
+	- IllegalArgumentException: Passing an invalid argument to a method.
+	- NumberFormatException: Converting a string to a number when the string is not in a valid format (e.g., parsing "abc" as an integer).
+	- StringIndexOutOfBoundsException: Accessing characters in a string with an invalid index.
+	- UnsupportedOperationException: An unsupported operation is invoked on a collection or other object.
+
+=============================
+
+// Classification OF Exception by Purpose
+
+	- Built-in Exceptions
+	  - Predefined exceptions provided by Java.
+	  - Examples: NullPointerException, ArrayStoreException, ClassCastException.
+
+	- User-defined Exceptions
+	  - Custom exceptions created by extending the Exception or RuntimeException class.
+	  - Example:
+
+		class CustomException extends Exception {
+		    public CustomException(String message) {
+		        super(message);
+		    }
+		}
+
+	User-defined exceptions in Java are custom exceptions that developers create to represent specific conditions 
+	or errors unique to an application. These exceptions are useful when the built-in exceptions in Java are not 
+	sufficient to describe an application-specific problem.
+
+	Steps to Create and Use User-defined Exceptions
+
+	- Define the Exception Class
+	  - Extend the Exception class for checked exceptions.
+	  - Extend the RuntimeException class for unchecked exceptions.
+	  - Provide constructors to initialize the exception object, optionally passing error messages 
+	    or other details.
+	- Throw the Exception: Use the throw keyword to explicitly throw the custom exception in your code.
+	- Handle the Exception: Catch the exception using a try-catch block or propagate it using the throws keyword.
+
