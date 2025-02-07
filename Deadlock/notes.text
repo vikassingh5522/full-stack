@@ -1,0 +1,11 @@
+Deadlock in Java - Explained
+A deadlock is a situation where two or more threads are stuck forever, waiting for each other to release resources.
+ It happens when multiple threads hold some locks and try to acquire additional locks held by other threads.
+
+Conditions for Deadlock
+A deadlock can occur if the following four conditions are met simultaneously:
+
+1}Mutual Exclusion – A resource can be held by only one thread at a time.
+2}Hold and Wait – A thread holding at least one resource is waiting for additional resources held by other threads.
+3}No Preemption – A resource cannot be forcibly taken from a thread; it must be released voluntarily.
+4}Circular Wait – A circular chain of threads exists, where each thread is waiting for a resource held by the next thread in the chain.
