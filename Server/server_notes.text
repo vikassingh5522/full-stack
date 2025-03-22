@@ -1,0 +1,339 @@
+//==================================================================================================================================
+
+	// Overview of Networking Concepts
+
+	Networking refers to the practice of connecting computers and other devices to 
+	share resources, exchange data, and facilitate communication. It is a fundamental
+	aspect of modern computing, enabling everything from simple file sharing between 
+	computers to complex internet-based applications and services.
+
+	Key networking concepts include:
+
+	Network Types:
+	- Local Area Network (LAN): A network covering a small geographic area, like a single building 
+	  or campus.
+	- Wide Area Network (WAN): A network covering a large geographic area, such as a city, country, 
+	  or even globally.
+	- Metropolitan Area Network (MAN): A network that spans a city or large campus.
+	- Internet - World wide network
+
+	Network Topologies: The layout pattern of interconnected nodes in a network. 
+		Common topologies include bus, star, ring, and mesh.
+
+	Protocols: Rules and conventions for communication between network devices. 	
+	Examples include TCP/IP, HTTP, FTP, and SMTP.
+
+	IP Addressing: Unique identifiers assigned to each device on a network, 
+	allowing them to be located and contacted. IPv4 and IPv6 are the two versions of IP addresses.
+
+	DNS (Domain Name System): A hierarchical system that translates human-readable 	domain names 
+	(like www.example.com) into IP addresses.
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// Importance of Networking in Applications
+
+	Networking is crucial for modern applications for several reasons:
+
+	- Resource Sharing: Networking allows multiple devices to share resources such 
+	  as printers, files, and internet connections.
+	- Communication: Enables communication between users through email, instant 
+	  messaging, and video conferencing.
+	- Data Exchange: Facilitates the exchange of data between devices, enabling 
+	  applications like web browsing, file transfers, and online gaming.
+	- Distributed Computing: Supports the distribution of computational tasks across
+	  multiple devices, improving performance and reliability.
+	- Internet of Things (IoT): Connects various devices (sensors, appliances, 
+	  vehicles) to the internet, enabling remote monitoring and control.
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Java and Networking
+
+	Java provides a robust set of libraries and APIs for developing networked 
+	applications. The java.net package is the core library for networking in Java, 
+	offering a range of classes and interfaces to handle various networking tasks.
+
+	Some key features of Java for networking include:
+
+	- Platform Independence: Java applications are platform-independent, meaning 
+	  they can run on any device with a Java Virtual Machine (JVM), making it easier 
+	  to develop networked applications that work across different operating systems.
+	- Extensive Networking Libraries: Java's java.net package includes classes for 
+	  working with URLs, sockets, and datagrams, as well as higher-level abstractions
+	  like HTTP and RMI (Remote Method Invocation).
+	- Security: Java provides built-in security features, such as the SecurityManager
+	  class and SSL/TLS support, to help secure networked applications.
+	- Multithreading: Java's support for multithreading makes it easier to handle 
+	  multiple network connections concurrently, improving the efficiency and 
+	  responsiveness of networked applications.
+
+//---------------------------------------------------------------------------------
+
+	// Common Java Networking Terminology
+
+	- IP Address: A unique identifier assigned to each device on a network. IPv4 
+	  addresses are 32-bit numbers, while IPv6 addresses are 128-bit numbers.
+
+	- Port: A numerical value assigned to specific processes or network services, 
+	  allowing multiple services to run on a single IP address. Common ports 
+	  include 80 (HTTP) and 443 (HTTPS).
+
+	- Socket: An endpoint for communication between two machines. A socket is bound 
+	  to a port number and an IP address.
+
+	- ServerSocket: A class in Java used to create server-side sockets that listen 
+	  for incoming connections from clients.
+
+	- ClientSocket: A socket initiated by a client to establish a connection with a 
+	  server's socket.
+
+	- Datagram: A self-contained packet of data sent over a network. Used primarily 
+	  in UDP (User Datagram Protocol) communication.
+
+	- URL (Uniform Resource Locator): A reference to a web resource that specifies 
+	  its location on a network and the protocol used to access it.
+	  (e.g., http://www.example.com).
+
+	- Protocol: A set of rules governing the communication between devices. Common 
+	  protocols include TCP (Transmission Control Protocol) and UDP (User Datagram 
+	  Protocol).
+
+	- TCP/IP (Transmission Control Protocol/Internet Protocol): A suite of 
+	  communication protocols used to interconnect network devices on the internet. 
+	  TCP ensures reliable data transfer, while IP handles addressing and routing.
+
+	- UDP (User Datagram Protocol): A connectionless protocol that allows data to be
+	  sent without establishing a connection. It is faster but less reliable 
+	  than TCP.
+
+	- HTTP (HyperText Transfer Protocol): The protocol used for transmitting web 
+	  pages over the internet. It is the foundation of data communication for the 
+	  World Wide Web.
+
+	- HTTPS (HyperText Transfer Protocol Secure): An extension of HTTP that uses 
+	  SSL/TLS to provide secure communication over a computer network.
+
+	- DNS (Domain Name System): A hierarchical system that translates human-readable 
+	  domain names (like www.example.com) into IP addresses.
+
+	- Multicasting: Sending a single message to a group of recipients simultaneously.
+	  This is typically used in applications like video conferencing.
+
+	- NIO (New Input/Output): A collection of Java programming APIs that offer 
+	  features for intensive I/O operations, including non-blocking I/O, buffer 
+	  management, and file handling.
+
+	- RMI (Remote Method Invocation): A Java API that allows objects to communicate 
+	  with each other in a networked environment, invoking methods remotely.
+
+	- SSL/TLS (Secure Sockets Layer/Transport Layer Security): Protocols used to 
+	  secure communication over a network by encrypting the data transferred between
+ 	  clients and servers.
+
+	- Firewall: A network security system that monitors and controls incoming and 
+	  outgoing network traffic based on predetermined security rules.
+
+//---------------------------------------------------------------------------------
+	
+	// Overview of java.net Package
+	
+	The java.net package provides classes and interfaces for implementing networking applications in Java. 
+	It covers both low-level and high-level networking features, allowing developers to work with various 
+	network protocols and communication methods. 
+
+	// Core Classes:
+	//----------------
+	- InetAddress
+		- Represents an IP address.
+		- Provides methods to resolve hostnames to IP addresses and vice versa.
+		- Example
+			InetAddress address = InetAddress.getByName("www.example.com");
+			System.out.println("IP Address: " + address.getHostAddress());
+
+	- Socket
+		- Represents a client-side socket for establishing a connection to a server.
+		- Provides methods for reading from and writing to the connection.
+		- Example
+			Socket socket = new Socket("localhost", 8080);
+
+	- ServerSocket
+		- Represents a server-side socket that listens for incoming client connections.
+		- Example:
+			ServerSocket serverSocket = new ServerSocket(8080);
+			Socket clientSocket = serverSocket.accept();
+
+	- DatagramSocket
+		- Used for sending and receiving datagram packets (UDP communication).
+		- Example
+			DatagramSocket socket = new DatagramSocket();
+
+	- DatagramPacket
+		- Represents a datagram packet used in UDP communication.
+		- Example
+			byte[] buf = new byte[256];
+			DatagramPacket packet = new DatagramPacket(buf, buf.length);
+
+	- URL
+		- Represents a Uniform Resource Locator, a pointer to a resource on the web.
+		- Provides methods to access and manipulate URL components.
+		- Example
+			URL url = new URL("http://www.example.com");
+	
+	- URLConnection
+		- Represents a communication link between the application and a URL.
+		- Example
+			URLConnection connection = new URL("http://www.example.com").openConnection();
+
+	- HttpURLConnection
+		- A subclass of URLConnection for HTTP-specific features.
+		- Example
+	
+	HttpURLConnection httpConn = (HttpURLConnection) new URL("http://www.example.com").openConnection();
+	httpConn.setRequestMethod("GET");
+
+	// Interfaces
+	//----------------
+
+	- ContentHandler: Defines a method for reading an Object from a URLConnection.
+	- FileNameMap: Provides a method for mapping a file name to a MIME type string.
+	- SocketImplFactory: Defines a factory interface for creating socket implementations.
+	- URLStreamHandlerFactory: Defines a factory interface for creating URLStreamHandler instances.
+
+	// Exception Classes
+	//----------------
+
+	- SocketException: Indicates an error with the underlying protocol, such as a TCP error.
+	- UnknownHostException: Thrown when a host name cannot be resolved.
+
+
+	The java.net package provides support for the two common network protocols −
+
+	- TCP − TCP stands for Transmission Control Protocol, which allows for reliable communication between 
+	  two applications. TCP is typically used over the Internet Protocol, which is referred to as TCP/IP.
+
+	- UDP − UDP stands for User Datagram Protocol, a connection-less protocol that allows for packets of 
+	  data to be transmitted between applications.
+
+	The java.net provides two different ways of deaing with n/w applications, which are 
+
+	- Socket Programming: Socket programming involves creating network applications that communicate over 
+	  a network using sockets. A socket is one endpoint of a two-way communication link between two 
+	  programs running on the network. Socket programming allows developers to create client-server 
+	  applications where one program (the client) sends requests to another program (the server), and the
+ 	  server processes these requests and sends back responses. - Transportation using streams
+
+	- URL Programming: URL programming involves working with Uniform Resource Locators (URLs) to access 
+	  resources on the web. Java provides classes and methods to work with URLs, allowing you to retrieve 	  	  
+	  data from web pages, send HTTP requests, and handle responses. - Transportation using Datagrams
+
+//------------------------------------------------------------------------------------------------------------
+
+	// Java Socket programming
+
+	Java Socket programming can either be connection-oriented or connection-less. In Socket Programming, 
+	Socket and ServerSocket classes are managed for connection-oriented socket programming. However, 
+	DatagramSocket and DatagramPacket classes are utilized for connection-less socket programming.
+
+    - The java.net.ServerSocket class: 
+
+	The java.net.ServerSocket class in Java is a fundamental class used in network programming for 
+	implementing server-side network communication. It is part of the java.net package and provides 
+	mechanisms for server applications to listen for incoming client connections over the network. 
+	
+	Constructors: Methods:
+	- ServerSocket(int port): Creates a server socket bound to the specified port.
+	- ServerSocket(int port, int backlog): Creates a server socket with a specified backlog.
+	- ServerSocket(int port, int backlog, InetAddress bindAddr): Binds to a specific address and 
+	  port with a specified backlog.
+
+	Methods: 
+
+	- accept(): Waits for an incoming client connection and returns a Socket object for the connection.
+	- bind(SocketAddress endpoint): Binds the server socket to a specific address.
+	- close(): Closes the server socket, releasing the port and any resources associated with it.
+	- setSoTimeout(int timeout): Sets a timeout for the accept() method.
+	- getLocalPort(): Returns the port number the server socket is bound to.
+	- isBound(): Checks if the server socket is bound to an address.
+	- isClosed(): Checks if the server socket is closed.
+
+    - The java.net.Socket:
+	
+	The java.net.Socket class in Java is a fundamental class used for client-side network communication. 
+	It is part of the java.net package and provides the necessary mechanisms for connecting to a server, 
+	sending and receiving data over a network.
+
+	Constructors:
+	- Socket(String host, int port): Creates a socket and connects it to the specified host and port.
+	- Socket(InetAddress address, int port): Connects to the server at the specified IP address and port.
+	  Various other constructors for advanced configurations, such as specifying a local address or binding 
+	  to a specific local port.
+
+	 Methods:
+	- getInputStream(): Returns an input stream for reading data from the socket.
+	- getOutputStream(): Returns an output stream for writing data to the socket.
+	- close(): Closes the socket, releasing any associated resources.
+	- setSoTimeout(int timeout): Sets a timeout for reading from the input stream.
+	- setSendBufferSize(int size): Sets the send buffer size for the socket.
+	- setReceiveBufferSize(int size): Sets the receive buffer size for the socket.
+ 	- getInetAddress(): Returns the address of the remote server.
+	- getPort(): Returns the remote port number.
+	- isClosed(): Checks if the socket is closed.
+	- isConnected(): Checks if the socket is connected.
+
+
+   - Steps to establishing a TCP connection between two computing devices using Socket Programming
+
+	The following are the steps that occur on establishing a TCP connection between two computers using 
+	socket programming are given as follows:
+ 
+
+	Step 1 – The server instantiates a ServerSocket object, indicating at which port number communication
+	will occur.
+
+	Step 2 – After instantiating the ServerSocket object, the server requests the accept() method of the 
+	ServerSocket class. This program pauses until a client connects to the server on the given port.
+
+	Step 3 – After the server is idling, a client instantiates an object of Socket class, defining the 
+	server name and the port number to connect to.
+
+	Step 4 – After the above step, the constructor of the Socket class strives to connect the client to 
+	the designated server and the port number. If communication is authenticated, the client forthwith 
+	has a Socket object proficient in interacting with the server.
+
+	Step 5 – On the server-side, the accept() method returns a reference to a new socket on the server 
+	connected to the client’s socket.
+
+	After the connections are stabilized, communication can happen using I/O streams. Each object of a 
+	socket class has both an OutputStream and an InputStream. The client’s OutputStream is correlated to 
+	the server’s InputStream, and the client’s InputStream is combined with the server’s OutputStream. 
+	Transmission Control Protocol (TCP) is a two-way communication protocol. Hence information can be 
+	transmitted over both streams at the corresponding time. 
+
+	// server program
+
+import java.io.*;
+import java.net.*;
+
+public class SimpleServer {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(12345)) {
+            System.out.println("Server is listening on port 12345");
+            while (true) {
+                Socket socket = serverSocket.accept();
+                System.out.println("New client connected");
+
+                // Handle the client connection
+                InputStream input = socket.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                String message = reader.readLine();
+                System.out.println("Received: " + message);
+
+                // Close the client connection
+                socket.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
