@@ -1,9 +1,4 @@
 
-### Longer README-style Description
-
-You can add this to your **README.md**:
-
-````
 # Full-Stack Java Learning Repository
 
 This repository contains a wide range of Java programs and examples that cover
